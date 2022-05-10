@@ -23,6 +23,7 @@ body {
 
 #logo_bible_learning {
     height: 11vh;
+    margin-left: 1%;
 }
 
 .navbar {
@@ -190,4 +191,15 @@ body {
     justify-content: center;
     font-family: 'montserrat', sans-serif;
     font-size: 18px;
+}
+
+::-webkit-scrollbar {
+    background-color: #B2F7EF;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #60d394;
+    width: 8px;
 }

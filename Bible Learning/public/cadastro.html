@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Nunito&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="icon" href="./imgs/icon_umbrella.png">
+    <title>Bible Learning | Cadastro</title>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="./imgs/logo_bible_learning.png" alt="logo bibli learning" id="logo_bible_learning"></a>
+            </div>
+        
+                <ul class="navbar">
+                    <li><a href="login.html">Entrar</a></li>
+                </ul>
+        </div>
+    </div>
+
+    <div class="banner">
+        <span id="span_check_nome">✓</span>
+        <span id="span_check_email">✓</span>
+        <span id="span_check_senha">✓</span>
+        <span id="span_check_repetir_senha">✓</span>
+
+        <div class="card">
+            <div class="container">
+                <h1>Cadastrar-se</h1>
+                <div class="linha"></div>
+
+                <div class="form">
+                    <div id="p1">
+                        <label for="input_nome">Nome</label>
+                        <input type="text" id="input_nome" placeholder="Seu nome">
+                        <span id="span_erro_nome">O nome deve conter no mínimo 3 caracteres</span>
+    
+                        <label for="input_email" id="label_email">Email</label>
+                        <input type="text" id="input_email" placeholder="exemplo@gmail.com">
+                            <span id="span_erro_email"> Email inválido, certifique-se que seu email termina em @gmail.com, @outlook.com ou @hotmail.com</span>
+                    </div>
+        
+                    <div id="p2">
+                        <label for="input_senha">Senha</label>
+                        <input type="password" id="input_senha" placeholder="********">
+                        <span id="span_erro_senha">A senha deve conter no mínimo 8 caracteres e um caracter especial</span>
+    
+                        <label for="input_repetir_senha" id="label_repetir_senha">Repetir senha</label>
+                        <input type="password" id="input_repetir_senha" placeholder="********">
+                        <span id="span_erro_repetir_senha">As senhas não conferem</span>
+                    </div>
+                </div>
+                
+                <button onclick="enviar()">Enviar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+        
+    function enviar(){
+        var nomeVar = ""
+        var emailVar = ""
+        var senhaVar = ""
+        var repetirSenhaVar= ""
+        nomeVar = input_nome.value.trim().toLowerCase();
+        emailVar = input_email.value.trim().toLowerCase();
+        senhaVar = input_senha.value.trim().toLowerCase();
+        var regex = /^(?=(?:.*?[A-Z]){0})(?=(?:.*?[0-9]){0})(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})(?!.*\s)[0-9a-zA-Z!@#$%;*(){}._+^&]*$/;
+        repetirSenhaVar = input_repetir_senha.value.trim().toLowerCase();
+        
+        if(nomeVar == "" || nomeVar < 3){
+            span_erro_nome.style.display = "block"
+            input_nome.style.border = "2px solid red"
+        } else if (emailVar == ""){
+            span_erro_email.style.display = "block"
+            input_email.style.border = "2px solid red"
+        } else if (emailVar.endsWith != ""){
+            span_erro_email.style.display = "block"
+            input_email.style.border = "2px solid red"
+        } else if (senhaVar == "" || senhaVar < 8 || !regex.exec(senhaVar)) {
+            span_erro_senha.style.display = "block"
+            input_senha.style.border = "2px solid red"
+        } else if (repetirSenhaVar != senhaVar) {
+            span_check_repetir_senha.style.display = "block"
+            input_repetir_senha.style.border = "2px solid red"
+        } else {
+            fetch("/usuarios/cadastrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        // crie um atributo que recebe o valor recuperado aqui
+                        // Agora vá para o arquivo routes/usuario.js
+                        nomeServer: nomeVar,
+                        emailServer: emailVar,
+                        senhaServer: senhaVar,
+                    })
+                }).then(function (resposta) {
+        
+                    console.log("resposta: ", resposta);
+        
+                    if (resposta.ok) {
+                        window.location = "login.html";
+                        limparFormulario();
+                        finalizarAguardar();
+                    } else {
+                        throw ("Houve um erro ao tentar realizar o cadastro!");
+                    }
+                }).catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                    finalizarAguardar();
+                });
+        
+                return false;
+        }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+    }
+</script>

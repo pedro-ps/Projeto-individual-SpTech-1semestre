@@ -9,24 +9,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Nunito&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/inicio.css">
     <link rel="icon" href="./imgs/bible-book.png">
+    <script src="../js/funcoes.js"></script>
     <title>Bible Learning</title>
 </head>
 <body>
     <div class="header">
         <div class="container">
             <div class="logo">
-                <a href="inicio.html"><img src="./imgs/logo_bible_learning.png" alt="logo bibli learning" id="logo_bible_learning"></a>
+                <a href="inicio.html" id="logo_site">
+                    <img src="./imgs/logo_bible_learning.png" alt="logo bible learning" id="logo_bible_learning">
+                </a>
             </div>
         
                 <ul class="navbar">
-                    <li>user</li>
+                    <li><span id="b_usuario">user</span>
+                        <ul>
+                            <li><span>Contato</span></li>
+                            <li><span>Conta</span></li>
+                            <li><span onclick="limparSessao()">Sair</span></li>
+                        </ul>
+                    </li>
                 </ul>
         </div>
     </div>
-    <div class="menu" id="menu">
-        <li><a href="#">Opções</a></li>
-        <li><a href="#">Conta</a></li>
-        <li><a href="#">Sair</a></li>
+
+    <div class="banner">
+        <div class="container">
+            <div class="links">
+                <h1>Olá, <span id="b_usuario2">user</span>!
+                    <br>  
+                  O que você vai ver hoje?</h1>
+                <a href="curiosidades.html" id="curiosidade"><img src="./imgs/seta-direita.png" alt="seta">Curiosidades</a>
+                <a href="#" id="dicas"><img src="./imgs/seta-direita.png" alt="seta">Dicas</a>
+                <a href="comunidade.html" id="comunidade"><img src="./imgs/seta-direita.png" alt="seta">Comunidade</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="linha"></div>
+
+    <div class="banner2">
+        <div class="container">
+            
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>
+            Bible Learning &copy 2022
+        </p>
     </div>
 </body>
 </html>
+
+<script>
+b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+b_usuario2.innerHTML = sessionStorage.NOME_USUARIO;
+</script>

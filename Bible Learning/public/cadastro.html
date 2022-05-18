@@ -8,14 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Nunito&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/cadastro.css">
-    <link rel="icon" href="./imgs/icon_umbrella.png">
+    <link rel="icon" href="./imgs/bible-book.png">
     <title>Bible Learning | Cadastro</title>
 </head>
 <body>
     <div class="header">
         <div class="container">
             <div class="logo">
-                <a href="index.html"><img src="./imgs/logo_bible_learning.png" alt="logo bibli learning" id="logo_bible_learning"></a>
+                <a href="index.html"><img src="./imgs/logo_bible_learning.png" alt="logo bible learning" id="logo_bible_learning"></a>
             </div>
         
                 <ul class="navbar">
@@ -65,13 +65,12 @@
 </html>
 
 <script>
-        
-    function enviar(){
         var nomeVar = ""
         var emailVar = ""
         var senhaVar = ""
         var repetirSenhaVar= ""
-        nomeVar = input_nome.value.trim().toLowerCase();
+    function enviar(){
+        nomeVar = input_nome.value.trim()
         emailVar = input_email.value.trim().toLowerCase();
         senhaVar = input_senha.value.trim().toLowerCase();
         var regex = /^(?=(?:.*?[A-Z]){0})(?=(?:.*?[0-9]){0})(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})(?!.*\s)[0-9a-zA-Z!@#$%;*(){}._+^&]*$/;
@@ -83,7 +82,7 @@
         } else if (emailVar == ""){
             span_erro_email.style.display = "block"
             input_email.style.border = "2px solid red"
-        } else if (emailVar.endsWith != ""){
+        } else if (!emailVar.endsWith("@gmail.com") && !emailVar.endsWith("@outlook.com") && !emailVar.endsWith("@hotmail.com") && !emailVar.endsWith("@sptech.school")){
             span_erro_email.style.display = "block"
             input_email.style.border = "2px solid red"
         } else if (senhaVar == "" || senhaVar < 8 || !regex.exec(senhaVar)) {

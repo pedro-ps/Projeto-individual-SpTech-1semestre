@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    height: 13vh;
+    background-color: #A5FFD6;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+
+.logo a {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#logo_bible_learning {
+    height: 11vh;
+    margin-left: 1%;
+}
+
+.header .container {
+    width: 80%;
+    height: 13vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo_bible_learning {
+    height: 11vh;
+    margin-left: 1%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    width: 10%;
+    height: 13vh;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.navbar li {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navbar ul {
+    position: absolute;
+    width: 40%;
+    height: 130%;
+    display: none;
+    background: #52b788;
+    list-style: none;
+    border-radius: 5px;
+    margin-top: 3%;
+}
+
+.navbar ul li {
+    margin-left: -30%;
+    margin-top: 8%;
+}
+
+.navbar li:hover ul {
+    display: block;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.banner {
+    background-color: #264653;
+    width: 100%;
+    height: 320vh;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.banner .container {
+    width: 80%;
+    height: 320vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+}
+
+.antigo_testamento {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.novo_testamento {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.selects {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    width: 100%;
+    height: 10vh;
+}
+
+select {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #bde0fe;
+    border-radius: 5px;
+    border: none;
+    outline: 0;
+    width: 85%;
+    height: 4.5vh;
+}
+
+select option {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    outline: 0;
+    border: none;
+    height: 10vh;
+}
+
+.graficos {
+    display: flex;
+    width: 80%;
+    height: 75vh;
+}
+
+#grafico_livros_antigo {
+    background-color: #f7ede2;
+    border-radius: 10px;
+}
+
+#grafico_livros_novo {
+    background-color: #f7ede2;
+    border-radius: 10px;
+}
+
+.interacao_testamento {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+    margin-left: 7%;
+}
+
+.select_testamento {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    width: 40%;
+    height: 10vh;
+    margin-top: 15%;
+}
+
+.select_testamento select {
+    width: 40%;
+}
+
+.grafico_pizza {
+    width: 40%;
+    height: 90vh;
+}
+
+.footer {
+    width: 100%;
+    height: 8vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'montserrat', sans-serif;
+    font-size: 18px;
+}

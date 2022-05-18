@@ -170,3 +170,20 @@ body {
     text-decoration: none;
     color: red;
 }
+
+.loading-div {
+    width: 50px;
+    display: none;
+    position: fixed;
+    margin-top: 7%;
+}
+
+.loading-div img {
+    height: 50px;
+    width: 50px;
+}
+
+.banner #div_erros_login {
+    margin-top: 15px;
+    font-family: 'Exo 2', sans-serif;
+  }

@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Nunito&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/comunidade.css">
     <link rel="icon" href="./imgs/bible-book.png">
+    <script src="../js/funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Bible Learning | Comunidade</title>
 </head>
@@ -22,20 +23,18 @@
             </div>
         
                 <ul class="navbar">
-                    <li>user
-                        <ul>
-                            <li><a href="#">Contato</a></li>
-                            <li><a href="#">Conta</a></li>
-                            <li><a href="index.html">Sair</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="./inicio.html">Home</a></li>
+                    <li><a href="./contatos.html">Contatos</a></li>
+                    <li><a href="#">Conta</a></li>
+                    <li onclick="limparSessao()">Sair</li>
+                    
                 </ul>
         </div>
     </div>
 
     <div class="banner">
         <div class="container">
-            <h1>Livros que as pessoas mais gostam no Antigo Testamento</h1>
+            <h1 id="primeiro_h1">Livros que as pessoas mais gostam no Antigo Testamento</h1>
             <div class="antigo_testamento">
                 <div class="selects">
                 Escolha o seu:
@@ -132,7 +131,7 @@
                 <div class="select_testamento">
                     Diga qual você prefere:
                         <select id="livros_biblia_novo">
-                            <option selected disabled>Escolha seu preferido</option>
+                            <option selected disabled>Escolha sua parte preferida</option>
                             <option value="antigo_testamento">Antigo Testamento</option>
                             <option value="novo_testamento">Novo Testamento</option>
                         </select>
@@ -176,7 +175,7 @@
     'Salmos', 
     'Provérbios', 
     'Eclesiastes', 
-    'Cânticos dos Cânticos', 
+    'Cânticos', 
     'Isaías', 
     'Jeremias', 
     'Lamentações', 
@@ -209,7 +208,8 @@
     const config = {
       type: 'bar',
       data: data,
-      options: {}
+      options: {
+      }
     };
   </script>
 
@@ -288,6 +288,7 @@
       '#00b4d8',
       '#06d6a0',
     ],
+    color: 'white',
     hoverOffset: 4
   }]
 };

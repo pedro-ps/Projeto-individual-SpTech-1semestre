@@ -6,87 +6,79 @@ body {
 
 .header {
     width: 100%;
-    height: 13vh;
-    background-color: #A5FFD6;
+    height: 11vh;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: center;
     border-bottom: 2px solid black;
-}
-
-.logo a {
-    text-decoration: none;
-    color: black;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-#logo_bible_learning {
-    height: 11vh;
-    margin-left: 1%;
+    position: fixed;
+    z-index: 999;
 }
 
 .header .container {
     width: 80%;
-    height: 13vh;
+    height: 11vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+#logo_site {
+    width: 30%;
+    height: 10vh;
+}
+
 #logo_bible_learning {
-    height: 11vh;
+    height: 9vh;
     margin-left: 1%;
 }
+
 
 .navbar {
     display: flex;
     flex-direction: row;
-    width: 10%;
+    width: 30%;
     height: 13vh;
     list-style: none;
     align-items: center;
+    display: flex;
     justify-content: space-between;
-    position: relative;
 }
 
 .navbar li {
     font-family: 'Exo 2', sans-serif;
-    font-size: 25px;
+    font-size: 19px;
     font-weight: bold;
     cursor: pointer;
-}
-
-.navbar ul {
-    position: absolute;
-    width: 40%;
-    height: 130%;
-    display: none;
-    background: #52b788;
-    list-style: none;
+    padding: 13px;
     border-radius: 5px;
-    margin-top: 3%;
-}
-
-.navbar ul li {
-    margin-left: -30%;
-    margin-top: 8%;
-}
-
-.navbar li:hover ul {
-    display: block;
-}
-
-.navbar ul li a {
     text-decoration: none;
     color: black;
-    font-weight: 500;
-    font-size: 17px;
+}
+
+.navbar li:hover {
+    background-color: #ced4da;
+}
+
+.navbar a {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 13px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar a:hover {
+    background-color: #ced4da;
 }
 
 .banner {
     background-color: #264653;
     width: 100%;
-    height: 320vh;
+    height: 420vh;
     display: flex;
     justify-content: center;
     color: white;
@@ -94,7 +86,7 @@ body {
 
 .banner .container {
     width: 80%;
-    height: 320vh;
+    height: 420vh;
     display: flex;
     flex-direction: column;
 }
@@ -102,27 +94,32 @@ body {
 .banner h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 40px;
+    margin-bottom: 5%;
+}
+
+#primeiro_h1 {
+    margin-top: 10%;
 }
 
 .antigo_testamento {
     width: 100%;
-    height: 100vh;
+    height: 180vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .novo_testamento {
     width: 100%;
-    height: 80vh;
+    height: 180vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .selects {
     font-family: 'Poppins', sans-serif;
     font-size: 30px;
     width: 100%;
-    height: 10vh;
+    height: 15vh;
 }
 
 select {
@@ -133,7 +130,7 @@ select {
     border-radius: 5px;
     border: none;
     outline: 0;
-    width: 85%;
+    width: 15%;
     height: 4.5vh;
 }
 
@@ -148,8 +145,8 @@ select option {
 
 .graficos {
     display: flex;
-    width: 80%;
-    height: 75vh;
+    width: 100%;
+    height: 100vh;
 }
 
 #grafico_livros_antigo {
@@ -167,25 +164,35 @@ select option {
     height: 90vh;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin-top: 5%;
-    margin-left: 7%;
+    background-color: #f7ede2;
+    border-radius: 20px;
+    margin-bottom: 8%;
 }
 
 .select_testamento {
     font-family: 'Poppins', sans-serif;
-    font-size: 30px;
+    font-size: 40px;
     width: 40%;
     height: 10vh;
-    margin-top: 15%;
+    color: black;
+    align-self: flex-start;
+    margin-top: 13%;
 }
 
 .select_testamento select {
-    width: 40%;
+    width: 70%;
+    height: 60%;
+    margin-left: 8%;
+    padding-left: 10px;
+    font-size: 25px;
 }
 
 .grafico_pizza {
     width: 40%;
-    height: 90vh;
+    height: 70vh;
 }
 
 .footer {

@@ -25,34 +25,34 @@
     </div>
 
     <div class="banner">
-        <span id="span_check_nome">✓</span>
-        <span id="span_check_email">✓</span>
-        <span id="span_check_senha">✓</span>
-        <span id="span_check_repetir_senha">✓</span>
+        <span id="span_check_nome"><img src="./imgs/verificado.png" class="check"></span>
+        <span id="span_check_email"><img src="./imgs/verificado.png" class="check"></span>
+        <span id="span_check_senha"><img src="./imgs/verificado.png" class="check"></span>
+        <span id="span_check_repetir_senha"><img src="./imgs/verificado.png" class="check"></span>
 
         <div class="card">
             <div class="container">
-                <h1>Cadastrar-se</h1>
+                <h1>Cadastre-se</h1>
                 <div class="linha"></div>
 
                 <div class="form">
                     <div id="p1">
                         <label for="input_nome">Nome</label>
-                        <input type="text" id="input_nome" placeholder="Seu nome">
+                        <input type="text" id="input_nome" placeholder="Seu nome" onkeyup="verificar_nome()">
                         <span id="span_erro_nome">O nome deve conter no mínimo 3 caracteres</span>
     
                         <label for="input_email" id="label_email">Email</label>
-                        <input type="text" id="input_email" placeholder="exemplo@gmail.com">
+                        <input type="text" id="input_email" placeholder="exemplo@gmail.com" onkeyup="verificar_email()">
                             <span id="span_erro_email"> Email inválido, certifique-se que seu email termina em @gmail.com, @outlook.com ou @hotmail.com</span>
                     </div>
         
                     <div id="p2">
                         <label for="input_senha">Senha</label>
-                        <input type="password" id="input_senha" placeholder="********">
+                        <input type="password" id="input_senha" placeholder="********" onkeyup="verificar_senha()">
                         <span id="span_erro_senha">A senha deve conter no mínimo 8 caracteres e um caracter especial</span>
     
                         <label for="input_repetir_senha" id="label_repetir_senha">Repetir senha</label>
-                        <input type="password" id="input_repetir_senha" placeholder="********">
+                        <input type="password" id="input_repetir_senha" placeholder="********" onkeyup="verificar_repetir_senha()">
                         <span id="span_erro_repetir_senha">As senhas não conferem</span>
                     </div>
                 </div>
@@ -69,14 +69,61 @@
         var emailVar = ""
         var senhaVar = ""
         var repetirSenhaVar= ""
-    function enviar(){
+
+    function verificar_nome(){
         nomeVar = input_nome.value.trim()
+
+        if(nomeVar.length >= 3){
+            span_check_nome.style.display = "block"
+            input_nome.style.border = ""
+            span_erro_nome.style.display = "none"
+        } else {
+            span_check_nome.style.display = "none"
+        }
+    }
+
+    function verificar_email(){
         emailVar = input_email.value.trim().toLowerCase();
+
+        if(emailVar.endsWith("@gmail.com") || emailVar.endsWith("@outlook.com") || emailVar.endsWith("@hotmail.com") || emailVar.endsWith("@sptech.school")){
+            span_check_email.style.display = "block"
+            span_erro_email.style.display = "none"
+            input_email.style.border = ""
+        } else {
+            span_check_email.style.display = "none"
+        }
+    }
+
+    function verificar_senha(){
         senhaVar = input_senha.value.trim().toLowerCase();
         var regex = /^(?=(?:.*?[A-Z]){0})(?=(?:.*?[0-9]){0})(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})(?!.*\s)[0-9a-zA-Z!@#$%;*(){}._+^&]*$/;
         repetirSenhaVar = input_repetir_senha.value.trim().toLowerCase();
+
+        if (senhaVar != "" && senhaVar.length >= 8 && regex.exec(senhaVar)){
+            span_check_senha.style.display = "block"
+            span_erro_senha.style.display = "none"
+            input_senha.style.border = ""
+        } else {
+            span_check_senha.style.display = "none"
+        }
+    }
+
+    function verificar_repetir_senha(){
+        repetirSenhaVar = input_repetir_senha.value.trim()
+        if(repetirSenhaVar == senhaVar){
+            span_check_repetir_senha.style.display = "block"
+            span_erro_repetir_senha.style.display = "none"
+            input_repetir_senha.style.border = ""
+        } else {
+            span_check_repetir_senha.style.display = "none"
+        }
+    }
+
+    function enviar(){
+        var regex = /^(?=(?:.*?[A-Z]){0})(?=(?:.*?[0-9]){0})(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})(?!.*\s)[0-9a-zA-Z!@#$%;*(){}._+^&]*$/;
+        repetirSenhaVar = input_repetir_senha.value.trim().toLowerCase();
         
-        if(nomeVar == "" || nomeVar < 3){
+        if(nomeVar == "" || nomeVar.length < 3){
             span_erro_nome.style.display = "block"
             input_nome.style.border = "2px solid red"
         } else if (emailVar == ""){
@@ -85,11 +132,11 @@
         } else if (!emailVar.endsWith("@gmail.com") && !emailVar.endsWith("@outlook.com") && !emailVar.endsWith("@hotmail.com") && !emailVar.endsWith("@sptech.school")){
             span_erro_email.style.display = "block"
             input_email.style.border = "2px solid red"
-        } else if (senhaVar == "" || senhaVar < 8 || !regex.exec(senhaVar)) {
+        } else if (senhaVar == "" || senhaVar.length < 8 || !regex.exec(senhaVar)) {
             span_erro_senha.style.display = "block"
             input_senha.style.border = "2px solid red"
         } else if (repetirSenhaVar != senhaVar) {
-            span_check_repetir_senha.style.display = "block"
+            span_erro_repetir_senha.style.display = "block"
             input_repetir_senha.style.border = "2px solid red"
         } else {
             fetch("/usuarios/cadastrar", {

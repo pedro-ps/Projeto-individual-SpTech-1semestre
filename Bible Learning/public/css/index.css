@@ -5,8 +5,8 @@ body {
 
 .header {
     width: 100%;
-    height: 13vh;
-    background-color: #A5FFD6;
+    height: 11vh;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: center;
     border-bottom: 2px solid black;
@@ -16,22 +16,22 @@ body {
 
 .header .container {
     width: 80%;
-    height: 13vh;
+    height: 11vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 #logo_bible_learning {
-    height: 11vh;
+    height: 9vh;
     margin-left: 1%;
 }
 
 .navbar {
     display: flex;
     flex-direction: row;
-    width: 22%;
-    height: 13vh;
+    width: 18%;
+    height: 11vh;
     list-style: none;
     display: flex;
     align-items: center;
@@ -42,15 +42,15 @@ body {
     text-decoration: none;
     color: black;
     font-family: 'Exo 2', sans-serif;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: bold;
-    padding: 19px;
+    padding: 13px;
     transition: 0.3s;
     border-radius: 5px;
 }
 
 .navbar a:hover {
-    background-color: #84dcc6;
+    background-color: #ced4da;
     transition: 0.3s;
 }
 
@@ -75,13 +75,13 @@ body {
 .banner1 p {
     color: #f7ede2;
     width: 100%;
-    font-size: 45px;
+    font-size: 50px;
     font-weight: bold;
     font-family: 'montserrat', sans-serif;
     text-align: center;
 }
 
-.banner2 {
+/* .banner2 {
     background-color: #10002B;
     width: 100%;
     height: 105vh;
@@ -200,7 +200,7 @@ body {
     color: white;
     font-size: 20px;
     margin-left: 20%;
-}
+} */
 
 .footer {
     width: 100%;
@@ -221,6 +221,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #60d394;
+    background-color: #22333b;
     width: 8px;
 }

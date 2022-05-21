@@ -5,8 +5,8 @@ body {
 
 .header {
     width: 100%;
-    height: 13vh;
-    background-color: #A5FFD6;
+    height: 11vh;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: center;
     border-bottom: 2px solid black;
@@ -15,21 +15,21 @@ body {
 
 .header .container {
     width: 80%;
-    height: 13vh;
+    height: 11vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 #logo_bible_learning {
-    height: 11vh;
+    height: 9vh;
 }
 
 .navbar {
     display: flex;
     flex-direction: row;
     width: 10%;
-    height: 13vh;
+    height: 11vh;
     list-style: none;
     display: flex;
     align-items: center;
@@ -40,22 +40,22 @@ body {
     text-decoration: none;
     color: black;
     font-family: 'Exo 2', sans-serif;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: bold;
-    padding: 19px;
+    padding: 13px;
     transition: 0.3s;
     border-radius: 5px;
 }
 
 .navbar a:hover {
-    background-color: #84dcc6;
+    background-color: #ced4da;
     transition: 0.3s;
 }
 
 .banner {
     width: 100%;
     height: 100vh;
-    background-color: #98C1D9;
+    background-color: #1d3557;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,10 +149,13 @@ body {
     color: #48cae4;
 }
 
+.check {
+    height: 4vh;
+}
+
 #span_check_nome {
     position: fixed;
     margin-left: -31.5%;
-    margin-top: .6%;
     font-size: 35px;
     color: #80b918;
     display: none;
@@ -161,7 +164,7 @@ body {
 #span_check_email {
     position: fixed;
     margin-left: -31.5%;
-    margin-top: 13%;
+    margin-top: 12%;
     font-size: 35px;
     color: #80b918;
     display: none;
@@ -170,7 +173,7 @@ body {
 #span_check_senha {
     position: fixed;
     margin-left: 31%;
-    margin-top: .5%;
+    margin-top: -.2%;
     font-size: 35px;
     color: #80b918;
     display: none;
@@ -179,7 +182,7 @@ body {
 #span_check_repetir_senha {
     position: fixed;
     margin-left: 31%;
-    margin-top: 13%;
+    margin-top: 11.9%;
     font-size: 35px;
     color: #80b918;
     display: none;

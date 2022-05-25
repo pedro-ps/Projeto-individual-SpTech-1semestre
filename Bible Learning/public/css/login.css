@@ -132,6 +132,7 @@ body {
     cursor: pointer;
     transition: .3s;
     margin-top: 10%;
+    border: 0;
 }
 
 .card button:hover {
@@ -185,12 +186,19 @@ body {
     width: 45px;
     display: none;
     position: fixed;
-    margin-top: 6.5%;
+    margin-top: 7.3%;
 }
 
 .loading-div img {
     height: 45px;
     width: 45px;
+}
+
+#eye {
+    margin-left: 54%;
+    margin-top: -8%;
+    position: relative;
+    cursor: pointer;
 }
 
 .banner #div_erros_login {

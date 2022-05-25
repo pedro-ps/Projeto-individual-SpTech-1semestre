@@ -7,11 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Nunito&family=Permanent+Marker&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/contatos.css">
+    <link rel="stylesheet" href="./css/dicas.css">
     <link rel="icon" href="./imgs/bible-book.png">
-    <script src="../js/funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Bible Learning | Contatos</title>
+    <script src="../js/funcoes.js"></script>
+    <title>Bible Learning | Dicas</title>
 </head>
 <body>
     <div class="header">
@@ -23,7 +23,8 @@
             </div>
         
                 <ul class="navbar">
-                    <li><a href="./inicio.html">Home</a></li>
+                    <li onclick="window.location='inicio.html'">Home</li>
+                    <li onclick="window.location='contatos.html'">Contatos</li>
                     <li onclick="limparSessao()">Sair</li>
                     
                 </ul>
@@ -32,23 +33,11 @@
 
     <div class="banner">
         <div class="container">
-            <div class="card_contatos">
-                <div class="container">
-                    <label for="img_email">Email:</label>
-                    <a href="mailto:pedro.pires@sptech.school" class="img_contatos" id="img_email"><img src="./imgs/icon_email.png" id="icon_email">pedro.pires@sptech.school</a>
-                    <label for="img_tel">Telefone/WhatsApp:</label>
-                    <a href="tel:+5511947254880" class="img_contatos" id="img_tel"><img src="./imgs/icon_whatsapp.png" id="icon_whatsapp">(11) 94725-4880</a>
-                    <label for="img_insta">Instagram:</label>
-                    <a href="https://www.instagram.com/s.pedro.s/" class="img_contatos" id="img_insta"><img src="./imgs/icon_instagram.png" id="icon_instagram">s.pedro.s</a>
-                </div>
-            </div>
-        </div>
-    </div>
+            <h1 id="first_title">Dicas</h1>
 
-    <div class="footer">
-        <p>
-            Bible Learning &copy 2022
-        </p>
+            <h1>Como estudar a bíblia?</h1>
+            <iframe width="750" height="414" src="https://www.youtube.com/embed/rIWTUA6YgHA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </div>
 </body>
 </html>

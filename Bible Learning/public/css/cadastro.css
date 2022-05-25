@@ -142,6 +142,7 @@ body {
     font-size: 17px;
     cursor: pointer;
     transition: .3s;
+    border: 0;
 }
 
 .card button:hover {
@@ -156,6 +157,7 @@ body {
 #span_check_nome {
     position: fixed;
     margin-left: -31.5%;
+    margin-top: .7%;
     font-size: 35px;
     color: #80b918;
     display: none;
@@ -164,7 +166,7 @@ body {
 #span_check_email {
     position: fixed;
     margin-left: -31.5%;
-    margin-top: 12%;
+    margin-top: 13.7%;
     font-size: 35px;
     color: #80b918;
     display: none;
@@ -173,7 +175,7 @@ body {
 #span_check_senha {
     position: fixed;
     margin-left: 31%;
-    margin-top: -.2%;
+    margin-top: .5%;
     font-size: 35px;
     color: #80b918;
     display: none;
@@ -182,7 +184,7 @@ body {
 #span_check_repetir_senha {
     position: fixed;
     margin-left: 31%;
-    margin-top: 11.9%;
+    margin-top: 13.5%;
     font-size: 35px;
     color: #80b918;
     display: none;

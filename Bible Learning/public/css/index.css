@@ -64,21 +64,28 @@ body {
 }
 
 .texto1 {
-    width: 40%;
-    height: 50%;
+    width: 42%;
+    height: 42%;
     opacity: 0.8;
     background-color: black;
     border-radius: 15px;
     margin-top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner1 p {
     color: #f7ede2;
-    width: 100%;
-    font-size: 50px;
+    width: 84%;
+    font-size: 47px;
     font-weight: bold;
     font-family: 'montserrat', sans-serif;
-    text-align: center;
+}
+
+#verso {
+    font-size: 30px;
+    margin-left: 17%;
 }
 
 /* .banner2 {

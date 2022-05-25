@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/inicio.css">
     <link rel="icon" href="./imgs/bible-book.png">
     <script src="../js/funcoes.js"></script>
-    <title>Bible Learning</title>
+    <title>Bible Learning | Home</title>
 </head>
 <body>
     <div class="header">
@@ -22,22 +22,22 @@
             </div>
         
                 <ul class="navbar">
-                            <li><a href="./contatos.html">Contatos</a></li>
-                            <li>Conta</li>
-                            <li onclick="limparSessao()">Sair</li>
+                    <li onclick="window.location='https://igrejas.adventistas.org'">Encontre uma igreja</li>
+                    <li onclick="window.location='contatos.html'">Contatos</a></li>
+                    <li onclick="limparSessao()">Sair</li>
                 </ul>
         </div>
     </div>
 
     <div class="banner">
         <div class="container">
-            <div class="links">
+            <div class="sumario">
                 <h1>Olá, <span id="b_usuario">user</span>!
                     <br>  
                   O que você vai ver hoje?</h1>
-                <a href="curiosidades.html" id="curiosidade"><img src="./imgs/seta-direita.png" alt="seta">Curiosidades</a>
-                <a href="#" id="dicas"><img src="./imgs/seta-direita.png" alt="seta">Dicas</a>
-                <a href="comunidade.html" id="preferencias"><img src="./imgs/seta-direita.png" alt="seta">Preferências da galera</a>
+                <span onclick="window.location='curiosidades.html'" class="links" id="curiosidade"><img src="./imgs/seta-direita.png" alt="seta">Curiosidades</span>
+                <span onclick="window.location='dicas.html'" class="links" id="dicas"><img src="./imgs/seta-direita.png" alt="seta">Dicas</span>
+                <span onclick="window.location='comunidade.html'" class="links" id="preferencias"><img src="./imgs/seta-direita.png" alt="seta">Preferências da galera</span>
             </div>
         </div>
     </div>

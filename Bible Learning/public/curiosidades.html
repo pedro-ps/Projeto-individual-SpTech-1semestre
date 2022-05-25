@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Nunito&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/curiosidades.css">
     <link rel="icon" href="./imgs/bible-book.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/funcoes.js"></script>
     <title>Bible Learning | Curiosidades</title>
 </head>
 <body>
@@ -16,26 +18,150 @@
         <div class="container">
             <div class="logo">
                 <a href="inicio.html" id="logo_site">
-                    Bible
-                    <br>
-                    Learning
+                  <img src="./imgs/logo_bible_learning.png" alt="logo bible learning" id="logo_bible_learning">
                 </a>
             </div>
         
                 <ul class="navbar">
-                    <li>user
-                        <ul>
-                            <li><a href="./contatos.html">Contato</a></li>
-                            <li><a href="#">Conta</a></li>
-                            <li><a href="index.html">Sair</a></li>
-                        </ul>
-                    </li>
+                    <li onclick="window.location='inicio.html'">Home</li>
+                    <li onclick="window.location='contatos.html'">Contatos</li>
+                    <li onclick="limparSessao()">Sair</li>
+                    
                 </ul>
         </div>
     </div>
 
     <div class="banner">
-        
+        <div class="container">
+          <h1 id="first_title">Curiosidades sobre a bíblia</h1>
+            <p id="first_text">
+                A Bíblia Sagrada foi escrita há mais de 4 mil anos atrás!
+                O mais impressionante, é que seus escritos, fazem muito sentido para os dias atuais. 
+                E com isso vem convertendo e mudando a vida de milhares de pessoas!
+            </p>
+
+            <p>
+                A  bíblia é um livro que foi escrito por vários autores diferentes, num período de quase 1.600 anos.
+                Ainda assim, a bíblia se completa em várias questões, seguindo uma linha do tempo quase perfeita!
+            </p>
+
+            <p id="divisao_livros">
+                O Antigo Testamento é composto por 39 livros. Já o Novo Testamento é composto por 27 livros,
+                Totalizando 66 livros. Estes 66 livros estão separados em:
+                <div id="listas">
+                    <h1>Antigo Testamento</h1>
+                    <li>Pentateuco (Gêneses, Êxodo, Levítico, Números, Deuteronômio);</li>
+                    <li>Livros históricos (Josué, Juízes, Rute, 1 e 2 Samuel, 1 e 2 Reis, 1 e 2 Crônicas, Esdras, Neemias, Ester);</li>
+                    <li>Livros poéticos (Jó, Salmo, Provérbios, Eclesiastes, Cantares);</li>
+                    <li>Profetas Maiores (Isaias, Jeremias, Lamentações, Ezequiel, Daniel);</li>
+                    <li>Profetas menores (Oséias, Joel, Amós, Obadias, Jonas, Miquéias, Naum, Habacuque, Sofonias, Ageu, Zacarias, Malaquias).</li>
+                    <h1>Novo Testamento</h1>
+                    <li>Evangelhos (Mateus, Marcos, Lucas, João);</li>
+                    <li>Histórico (Atos dos apóstolos)</li>
+                    <li>Epístolas ou cartas (Romanos, I e II Coríntios, Gálatas, Efésios, Felipenses, Colossenses, I e II Tessanolossenses, 1 e 2 Timóteo, Tito, Filemon, Hebreus, Tiago, 1 e 2 Pedro, 1, 2 e 3 João, Judas);</li>
+                    <li>Revelações (Apocalipse).</li>
+                </div>
+            </p>
+            <h1 id="titulo_grafico_partes">Quanto cada parte ocupa na bíblia (em porcentagem)</h1>
+            <h1 class="titulo_grafico">Antigo Testamento</h1>
+            <div id="grafico1">
+                <canvas id="antigo_testamento"></canvas>
+            </div>
+
+            <h1 class="titulo_grafico" id=grafico_novo>Novo Testamento</h1>
+            <div id="grafico2">
+                <canvas id="novo_testamento"></canvas>
+            </div>
+
+            <p id="pos_grafico">
+              A bíblia foi escrita por 40 pessoas e é traduzida em mais de 1.500 línguas.
+              Além conta com cerca dde 1.189 capítulos, 31.102 versículos, 773.693 palavras e 3.566.480 letras.
+            </p>
+
+            <p id="breve">
+              Em breve postaremos mais curiosidades, fique de olho!
+            </p>
+        </div>
     </div>
+
+    <div class="footer">
+      <p>
+          Bible Learning &copy 2022
+      </p>
+  </div>
 </body>
 </html>
+
+<script>
+
+    const data = {
+  labels: [
+    'Pentateuco',
+    'Livros históricos',
+    'Livros poéticos',
+    'Profetas maiores',
+    'Profetas menores',
+  ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [12.82, 30.76, 12.82, 12.82, 28.20],
+    backgroundColor: [
+      '#7bdff2',
+      '#a0db72',
+      '#84dcc6',
+      '#ff686b',
+      '#fbec88',
+    ],
+    color: 'white',
+    hoverOffset: 4
+  }]
+};
+    const config = {
+  type: 'pie',
+  data: data,
+  ticks: {
+    color: 'black'
+  }
+};
+</script>
+
+<script>
+    const myChart = new Chart(
+      document.getElementById('antigo_testamento'),
+      config
+    );
+</script>
+
+<script>
+    const data2 = {
+  labels: [
+    'Evangelhos',
+    'Histórico',
+    'Revelações',   
+    'Epístolas ou cartas',
+  ],
+  datasets: [{
+    label: 'My Dataset',
+    data: [14.81, 3.70, 3.70, 77.77],
+    backgroundColor: [
+      '#00b4d8',
+      '#fca311',
+      '#e5383b',
+      '#06d6a0',
+    ],
+    color: 'white',
+    hoverOffset: 4
+  }]
+};
+    const config2= {
+  type: 'pie',
+  data: data2,
+};
+</script>
+
+<script>
+    const myChart2 = new Chart(
+      document.getElementById('novo_testamento'),
+      config2
+    );
+</script>

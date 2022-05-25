@@ -42,13 +42,14 @@
                         <div id="div2">
                             A senha deve conter no mínimo 8 caracteres e um caracter especial
                         </div>
+                        <img id="eye" onclick="senha_ver()" src="imgs/ver_senha.png" alt="" width="20px">
                 </div>
                 
                 <button onclick="entrar()">Entrar</button>
                 <span class="link_cadastro">Não tem cadastro? Só se cadastrar <a href="cadastro.html">aqui</a>!</span>
 
                 <div id="div_aguardar" class="loading-div">
-                    <img src="./imgs/loading_bible_learning.gif" id="loading-gif">
+                    <img src="./imgs/loading_login.jpg" id="loading-gif">
                 </div>
 
                 <div id="div_erros_login">
@@ -128,5 +129,28 @@
 
     function sumirMensagem() {
         cardErro.style.display = "none"
+    }
+
+    const passwordinput = document.getElementById("input_senha");
+    const olho_aberto = document.getElementById("eye");
+
+    function senha_ver() {
+        let inputtype = passwordinput.type == "password";
+
+        if (inputtype) {
+            mostrar_senha();
+        } else {
+            esconder_senha();
+        }
+    }
+
+    function mostrar_senha() {
+        passwordinput.setAttribute("type", "text");
+        olho_aberto.setAttribute("src", "imgs/senha.png");
+    }
+
+    function esconder_senha() {
+        passwordinput.setAttribute("type", "password");
+        olho_aberto.setAttribute("src", "imgs/ver_senha.png");
     }
 </script>

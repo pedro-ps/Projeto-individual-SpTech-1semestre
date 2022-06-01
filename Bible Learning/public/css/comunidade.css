@@ -1,191 +1,175 @@
-*,
 body {
-  font-family: "Exo 2", sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #98c1d9;
 }
 
 .header {
-    width: 100%;
-    height: 11vh;
-    background-color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    border-bottom: 2px solid black;
+  width: 100%;
+  height: 11vh;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid black;
 }
 
 .header .container {
-    width: 80%;
-    height: 11vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 80%;
+  height: 11vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #logo_site {
-    width: 30%;
-    height: 10vh;
+  width: 30%;
+  height: 10vh;
 }
 
 #logo_bible_learning {
-    height: 9vh;
-    margin-left: 1%;
+  height: 9vh;
+  margin-left: 1%;
 }
 
 
 .navbar {
-    display: flex;
-    flex-direction: row;
-    width: 33%;
-    height: 13vh;
-    list-style: none;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  width: 23%;
+  height: 13vh;
+  list-style: none;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar li {
-    font-family: 'Exo 2', sans-serif;
-    font-size: 19px;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 13px;
-    border-radius: 5px;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 13px;
+  border-radius: 5px;
 }
 
 .navbar li:hover {
-    background-color: #ced4da;
+  background-color: #ced4da;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: black;
+.janela h3 {
+  display: none;
 }
 
-.navbar a:hover {
-    background-color: #ced4da;
+.janela h1 {
+  margin-left: 15%;
 }
 
-.banner {
-    width: 99%;
-    height: 100vh;
-    display: felx;
+.janela {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
 }
 
-.avisos {
-  width: 100%;
-  /* border: 3px solid pink; */
-  color: rgb(216, 216, 216);
-  font-family: "Exo 2", sans-serif;
-}
-
-.avisos .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.avisos .container .div-form {
-  width: 100%;
-}
-
-.avisos .container .div-form #form_postagem {
-  width: 100%;
-}
-
-.avisos .div-form label {
-  width: 100%;
-  margin-left: 10%;
-}
-
-.avisos .div-form input {
-  width: 20%;
+.janela input {
+  width: 13%;
   height: 4vh;
-  border-radius: 5px;
   font-size: 15px;
-  padding-left: 3px;
-  margin-left: 10%;
-}
-
-.avisos .div-form textarea {
-  width: 35%;
-  height: 25vh;
-  border: 3px solid #e6005a;
-  background-color: white;
   border-radius: 5px;
-  margin-left: 10%;
+  border: 2px solid black;
+  outline: 0;
+  margin-left: 15%;
+  margin-top: .2%;
+  margin-bottom: 1%;
+  background-color: #FFFFFF;
 }
 
-.avisos .div-form button {
-  cursor: pointer;
-  font-family: "Exo 2", sans-serif;
+.janela label {
+  margin-left: 15%;
+  font-size: 25px;
+}
+
+#textarea_descricao {
+  height: 35vh;
+  width: 40%;
+  resize: none;
+  font-size: 15px;
+  margin-left: 15%;
+  outline: 0;
+  border-radius: 5px;
+  border: 2px solid black;
+  padding-top: 5px;
+  padding-left: 5px;
+  margin-top: .2%;
+  background-color: #FFFFFF;
+}
+
+.janela button {
+  margin-left: 32.5%;
+  width: 8%;
+  height: 4.5vh;
+  border-radius: 10px;
   border: 0;
-  border-radius: 5px;
-  font-weight: 600;
   font-size: 18px;
-  padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
-  width: 120px;
-  margin-left: 24%;
-  margin-top: 1%;
+  background-color: #10002B;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: .3s;
 }
 
-.publicacao-btn-editar {
-  cursor: pointer;
-  font-family: "Exo 2", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 5px 8px;
-  color: white;
-  background-color: #e6005a;
-  width: 80px;
+.janela button:hover {
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
+  transition: .3s;
+}
+
+#titulo_mural {
+  font-size: 40px;
+
 }
 
 .publicacao {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: stretch;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  border-bottom: 3px solid #e6005a;
-  padding: 20px;
+  background-color: #264653;
+  color: white;
+  width: 50%;
+  margin-left: 15%;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  margin-bottom: 2%;
 }
 
-.publicacao > *:not(:last-child) {
-  padding: 0 0 10px 0;
-}
-
-.div-results {
-  width: 100%;
-}
-
-.div-results .feed-container {
-  background-color: #212124;
-  border-radius: 5px;
-  margin-bottom: 80px;
+.publicacao-descricao b{
+  word-wrap: break-word;
 }
 
 .div-buttons {
+  width: 10%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  margin-top: 2%;
 }
 
-.div-buttons > * {
-  margin-left: 30px;
+#btnEditar {
+  width: 100%;
+  background-color: #a8dadc;
+  color: black;
 }
 
-.footer {
-    width: 100%;
-    height: 8vh;
-    background-color: black;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'montserrat', sans-serif;
-    font-size: 18px;
+#btnDeletar {
+  width: 100%;
+  background-color: #a8dadc;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  background-color: #B2F7EF;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #22333b;
+  width: 8px;
 }

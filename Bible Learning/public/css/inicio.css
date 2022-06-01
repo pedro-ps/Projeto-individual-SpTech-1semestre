@@ -55,15 +55,6 @@ body {
     background-color: #ced4da;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: black;
-}
-
-.navbar a:hover {
-    background-color: #ced4da;
-}
-
 .banner {
     width: 100%;
     height: 89vh;
@@ -145,12 +136,12 @@ h1 {
     height: 60%;
 }
 
-#preferencias {
-    width: 56%;
+#comunidade {
+    width: 34%;
     height: 9%;
 }
 
-#preferencias img {
+#comunidade img {
     height: 60%;
 }
 

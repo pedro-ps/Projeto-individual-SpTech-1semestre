@@ -77,15 +77,16 @@ body {
 
 .banner {
     width: 100%;
-    height: 625vh;
+    height: 690vh;
     background-color: #f5ebe0;
     display: flex;
     justify-content: center;
 }
 
 .banner .container {    
+    margin-left: 3%;
     width: 80%;
-    height: 625vh;
+    height: 690vh;
     display: flex;
     flex-direction: column;
 }
@@ -152,6 +153,113 @@ body {
 
 #grafico_novo {
     margin-top: 10%;
+}
+
+.interacao {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+#grafico_votacao {
+    width: 80%;
+    border-radius: 10px;
+}
+
+.selects {
+    margin-top: 3%;
+    margin-left: 1.5%;
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+select {
+    align-self: flex-start;
+    width: 97%;
+    height: 8%;
+    outline: 0;
+    border-radius: 5px;
+    background-color: #e5e5e5;
+    cursor: pointer;
+    transition: .3s;
+}
+
+select:hover {
+    transition: .3s;
+    background-color: white;
+}
+
+option {
+    border-top-left-radius: none;
+    background-color: #1d3557;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 10%;
+    width: 45%;
+    height: 8%;
+    border-radius: 8px;
+    border: 0;
+    background-color: #3d405b;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
+}
+
+button:hover {
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+    background-color: #023047;
+    transition: .5s;
+}
+
+#triangulo {
+    width: 0; 
+    height: 0; 
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent; 
+    border-right:15px solid #264653; 
+    position: absolute;
+    margin-left: 63.5%;
+    margin-top: 269%;
+    display: none;
+}
+
+#aviso {    
+    font-size: 15px;
+    width: 10%;
+    text-align: center;
+    background-color: #264653;
+    color: #FFFFFF;
+    font-weight: 0;
+    border-radius: 8px;
+    padding: 5px;
+    transition: .5s;
+    display: none;
+    position: absolute;
+    margin-left: 23.5%;
+    margin-top: 1.5%;
+}
+
+#fala {
+    background-color: #fcbf49;
+    width: 88%;
+    margin-top: 10%;
+    border-radius: 8px;
+    padding: 10px;
+    display: none;
 }
 
 #pos_grafico {

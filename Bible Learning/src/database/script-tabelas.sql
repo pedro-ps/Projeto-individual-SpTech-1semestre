@@ -12,29 +12,21 @@ nome varchar (45),
 email varchar (70) unique,
 senha varchar (15));
 
-/*Tabela de livros do antigo testamento*/
-create table livro_antigo(
-id int primary key auto_increment,
-nome varchar (70),
-qntd_escolha int);
-
-/*Tabela de livros do novo testamento*/
-create table livro_novo (
+/*Tabela de livros*/
+create table livros (
 id int primary key auto_increment,
 nome varchar (70),
 qntd_escolha int);
 
 /*Tabela de livro favorito do usuario */
 create table livro_favorito (
-fk_livro_antigo int,
-foreign key (fk_livro_antigo) references livro_antigo(id),
-fk_livro_novo int,
-foreign key (fk_livro_novo) references livro_novo(id),
+fk_livros int,
+foreign key (fk_livros) references livros(id),
 fk_usuario int,
 foreign key (fk_usuario) references usuario(id));
 
 /*Inserindo dados da tabela de livros do antigo testamento*/
-insert into livro_antigo (nome)
+insert into livros(nome)
 values ('Gênesis'), 
     ('Êxodo'), 
     ('Levítico'), 
@@ -46,8 +38,10 @@ values ('Gênesis'),
     ('1 Samuel'), 
     ('2 Samuel'), 
     ('1 Reis'), 
-    ('2 Reis'), 
-    ('2 Crônicas'), 
+    ('2 Reis'),
+    ('1 Crônicas'),
+    ('2 Crônicas'),
+    ('Esdras'),
     ('Neemias'), 
     ('Ester'), 
     ('Jó'), 
@@ -61,7 +55,8 @@ values ('Gênesis'),
     ('Ezequiel'), 
     ('Daniel'), 
     ('Oseias'), 
-    ('Joel'), 
+    ('Joel'),
+    ('Amós'),
     ('Obadias'), 
     ('Jonas'), 
     ('Miqueias'), 
@@ -70,11 +65,8 @@ values ('Gênesis'),
     ('Sofonias'), 
     ('Ageu'), 
     ('Zacarias'),
-    ('Malaquias');
-
-/*Inserindo dados da tabela de livros do novo testamento*/
-insert into livro_novo (nome)
-values ('Mateus'), 
+    ('Malaquias'),
+    ('Mateus'), 
     ('Marcos'), 
     ('Lucas'), 
     ('João'),
@@ -101,6 +93,8 @@ values ('Mateus'),
     ('3 João'),
     ('Judas'),
     ('Apocalipse');
+    
+    select * from livros;
 
 
 

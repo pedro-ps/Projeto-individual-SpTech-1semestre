@@ -30,7 +30,7 @@ body {
 .navbar {
     display: flex;
     flex-direction: row;
-    width: 18%;
+    width: 20%;
     height: 11vh;
     list-style: none;
     display: flex;

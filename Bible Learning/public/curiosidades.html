@@ -13,7 +13,7 @@
     <script src="../js/funcoes.js"></script>
     <title>Bible Learning | Curiosidades</title>
 </head>
-<body>
+<body onload="validarSessao(), atualizarFeed()">
     <div class="header">
         <div class="container">
             <div class="logo">
@@ -60,18 +60,50 @@
                     <li>Histórico (Atos dos apóstolos)</li>
                     <li>Epístolas ou cartas (Romanos, I e II Coríntios, Gálatas, Efésios, Felipenses, Colossenses, I e II Tessanolossenses, 1 e 2 Timóteo, Tito, Filemon, Hebreus, Tiago, 1 e 2 Pedro, 1, 2 e 3 João, Judas);</li>
                     <li>Revelações (Apocalipse).</li>
-                </div>
-            </p>
-            <h1 id="titulo_grafico_partes">Quanto cada parte ocupa na bíblia (em porcentagem)</h1>
+                  </div>
+                </p>
+                <h1 id="titulo_grafico_partes">Quanto cada parte ocupa na bíblia (em porcentagem)</h1>
             <h1 class="titulo_grafico">Antigo Testamento</h1>
             <div id="grafico1">
-                <canvas id="antigo_testamento"></canvas>
+              <canvas id="antigo_testamento"></canvas>
             </div>
-
+            
             <h1 class="titulo_grafico" id=grafico_novo>Novo Testamento</h1>
             <div id="grafico2">
-                <canvas id="novo_testamento"></canvas>
+              <canvas id="novo_testamento"></canvas>
             </div>
+            
+            <div id="triangulo"></div>
+            <h1 id="votacao">Veja qual a parte o pessoal acha mais legal:</h1>
+            <div class="interacao">
+              <div id="grafico_votacao">
+                <canvas id="grafico_voto"></canvas>
+              </div>
+              
+              <div class="selects">
+                Qual a sua parte favorita?
+                <select name="select votacao" id="partes_biblia" onclick="selecao()">
+                  <option selected disabled>Escolha sua parte</option>
+                  <option value="1">Pentateuco</option>
+                  <option value="2">Livros históricos</option>
+                  <option value="3">Livros poéticos</option>
+                  <option value="4">Profetas maiores</option>
+                  <option value="5">Profetas menores</option>
+                  <option value="6">Evangelhos</option>
+                  <option value="7">Histórico</option>
+                  <option value="8">Epístolas ou cartas</option>
+                  <option value="9">Revelações</option>
+                </select>
+
+                <button onclick="escolher()" id="btn_escolha" disabled>Escolher</button>
+                <div id="aviso">Você pode mudar sua escolha, fique tranquilo.</div>
+
+                <div id="fala">
+                  Ótima escolha, também gosto dessa parte!
+                </div>
+              </div>
+            </div>
+
 
             <p id="pos_grafico">
               A bíblia foi escrita por 40 pessoas e é traduzida em mais de 1.500 línguas.
@@ -91,6 +123,155 @@
   </div>
 </body>
 </html>
+
+<script>
+  function selecao(){
+    aviso.style.display = "block";
+    triangulo.style.display = "block";
+    btn_escolha.disabled = false;
+    fala.style.display = "none";
+  }
+
+  function escolher(){
+    
+    aviso.style.display = "none";
+    triangulo.style.display = "none";
+
+    var idUsuario = sessionStorage.ID_USUARIO;
+    var parteVar = Number(partes_biblia.value)
+
+    fetch(`/voto/votar/${idUsuario}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        // crie um atributo que recebe o valor recuperado aqui
+                        // Agora vá para o arquivo routes/usuario.js
+                        parteServer: parteVar,
+                    })
+                }).then(function (resposta) {
+        
+                    console.log("resposta: ", resposta);
+        
+                    if (resposta.ok) {
+                      fala.style.display = "block";
+                      obterDadosGrafico();
+                        /* limparFormulario(); */
+                        /* finalizarAguardar(); */
+                    } else {
+                        throw ("Houve um erro ao tentar realizar o voto!");
+                    }
+                }).catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                    /* finalizarAguardar(); */
+                });
+        
+                return false;
+        }
+
+        
+       /*------------------------------------------------Trazendo dados do banco----------------------------------------------------*/
+       function obterDadosGrafico(fk_parte_favorita) {
+
+        fetch(`/voto/trazer/`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                plotarGrafico(resposta);
+                console.log("teste" + resultado)
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function plotarGrafico(resposta) {
+    console.log('resposta:', resposta)
+    // console.log(resposta)
+    console.log('iniciando plotagem do gráfico...');
+
+    const ctx2 = document.getElementById('grafico_voto');
+    ctx2.style.backgroundColor = '#B2F7EF';
+    ctx2.style.padding = '10px';
+    Chart.defaults.color = "black";
+    Chart.defaults.borderColor = '#000';
+    Chart.defaults.font.size = 18;
+
+    /* const qntd_pessoas = resposta.map(listaPessoas => listaPessoas.qntd_pessoas)
+    console.log('nomeMaquina', qntd_pessoas) */
+
+    const labels = [
+  'Pentateuco',
+  'Livros históricos',
+  'Livros poéticos',
+  'Profetas maiores',
+  'Profetas menores',
+  'Evangelhos',
+  'Histórico',
+  'Epístolas',
+  'Revelações',   
+  ];
+
+  const data3 = {
+    labels: labels,
+    datasets: [{
+      label: 'Número de pessoas que preferem essa parte',
+      backgroundColor: '#009ee2',
+      borderColor: '#ffffff',
+      data: [
+        1, 2, 3, 4, 4, 3, 2, 1,
+      ],
+    }]
+  };
+
+  const config3 = {
+    type: 'bar',
+    data: data3,
+    options: {
+/*       indexAxis: 'y', */
+    }
+  };
+
+  const myChart3 = new Chart(
+    document.getElementById('grafico_voto'),
+    config3
+  );
+    /*atualiza o gráfico de 2 em e segundos*/
+    setTimeout(() => atualizarGrafico(), 2000);
+  }
+
+  function atualizarGrafico() {
+  
+  fetch(`/medidas/tempo-real/`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+          response.json().then(function (novoRegistro) {
+                // tirando e colocando valores no gráfico
+                dados.data.labels.push(novoRegistro[0]); // incluir um novo momentoapagar o primeiro de temperatura
+                dados.data.datasets[0].data.push(novoRegistro[0]);
+                dados.update();
+
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(), 2000);
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(), 2000);
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+
+}
+</script>
+
+<!---------------------------------------------------------ChartJs--------------------------------------------------------------------->
 
 <script>
 
@@ -165,3 +346,42 @@
       config2
     );
 </script>
+
+<!-- <script>
+  const labels = [
+  'Pentateuco',
+  'Livros históricos',
+  'Livros poéticos',
+  'Profetas maiores',
+  'Profetas menores',
+  'Evangelhos',
+  'Histórico',
+  'Epístolas',
+  'Revelações',   
+  ];
+
+  const data3 = {
+    labels: labels,
+    datasets: [{
+      label: 'Número de pessoas que preferem determinada parte',
+      backgroundColor: '#009ee2',
+      borderColor: '#ffffff',
+      data: [2, 3, 5, 10, 1, 7, 6, 2, 9],
+    }]
+  };
+
+  const config3 = {
+    type: 'bar',
+    data: data3,
+    options: {
+/*       indexAxis: 'y', */
+    }
+  };
+</script>
+
+<script>
+  const myChart3 = new Chart(
+    document.getElementById('grafico_voto'),
+    config3
+  );
+</script> -->

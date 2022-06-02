@@ -3,7 +3,7 @@ var router = express.Router();
 
 var votoController = require("../controllers/votoController");
 
-router.get("/trazer/:fk_parte_favorita", function (req, res) {
+router.get("/trazer/", function (req, res) {
     votoController.trazer(req, res);
 });
 

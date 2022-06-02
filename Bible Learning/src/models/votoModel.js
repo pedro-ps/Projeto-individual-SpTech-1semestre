@@ -9,7 +9,7 @@ var database = require("../database/config")
     return database.executar(instrucao);
 } */
 
-function trazer(fk_parte_favorita) {
+function trazer() {
     var instrucao = `
     select count(fk_parte_favorita) as parte_favorita FROM usuario group by fk_parte_favorita;
     `;

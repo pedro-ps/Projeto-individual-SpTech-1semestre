@@ -158,7 +158,7 @@ body {
 .interacao {
     width: 80%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 100vh;
 }
 
@@ -168,22 +168,31 @@ body {
 }
 
 .selects {
-    margin-top: 3%;
-    margin-left: 1.5%;
-    width: 18%;
+    /* margin-top: 3%; */
+    /* margin-left: 1.5%; */
+    width: 79.98%;
+    height: 8vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     font-weight: bold;
+    background-color: #457b9d;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
 
+.selects h4 {
+    width: 35%;
+    margin-left: 5%;
 }
 
 select {
+    margin-top: 2%;
     align-self: flex-start;
-    width: 97%;
-    height: 8%;
+    width: 20%;
+    height: 50%;
     outline: 0;
     border-radius: 5px;
     background-color: #e5e5e5;
@@ -205,9 +214,9 @@ option {
 }
 
 button {
-    margin-top: 10%;
-    width: 45%;
-    height: 8%;
+    margin-left: 5%;
+    width: 15%;
+    height: 50%;
     border-radius: 8px;
     border: 0;
     background-color: #3d405b;
@@ -229,11 +238,11 @@ button:hover {
     width: 0; 
     height: 0; 
     border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent; 
-    border-right:15px solid #264653; 
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #adb5bd;
     position: absolute;
-    margin-left: 63.5%;
-    margin-top: 269%;
+    margin-left: 19.5%;
+    margin-top: 262%;
     display: none;
 }
 
@@ -241,16 +250,15 @@ button:hover {
     font-size: 15px;
     width: 10%;
     text-align: center;
-    background-color: #264653;
-    color: #FFFFFF;
+    background-color: #adb5bd;
+    color: black;
     font-weight: 0;
     border-radius: 8px;
     padding: 5px;
     transition: .5s;
     display: none;
     position: absolute;
-    margin-left: 23.5%;
-    margin-top: 1.5%;
+    margin-left: 9%;
 }
 
 #fala {

@@ -27,11 +27,9 @@ function testar(req, res) {
 function trazer(req, res) {
     const limite_linhas = 7;
 
-    var fk_parte_favorita = req.params.fk_parte_favorita;
+    console.log(`Recuperando os últimos ${limite_linhas} votos`);
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
-
-    medidaModel.trazer(fk_parte_favorita, limite_linhas).then(function (resultado) {
+    votoModel.trazer(limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

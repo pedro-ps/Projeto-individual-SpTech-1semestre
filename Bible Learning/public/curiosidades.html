@@ -76,12 +76,8 @@
             <div id="triangulo"></div>
             <h1 id="votacao">Veja qual a parte o pessoal acha mais legal:</h1>
             <div class="interacao">
-              <div id="grafico_votacao">
-                <canvas id="grafico_voto"></canvas>
-              </div>
-              
               <div class="selects">
-                Qual a sua parte favorita?
+                <h4>Qual a sua parte favorita?</h4>
                 <select name="select votacao" id="partes_biblia" onclick="selecao()">
                   <option selected disabled>Escolha sua parte</option>
                   <option value="1">Pentateuco</option>
@@ -94,14 +90,23 @@
                   <option value="8">Epístolas ou cartas</option>
                   <option value="9">Revelações</option>
                 </select>
-
+  
                 <button onclick="escolher()" id="btn_escolha" disabled>Escolher</button>
-                <div id="aviso">Você pode mudar sua escolha, fique tranquilo.</div>
 
+                <div id="aviso">Você pode mudar sua escolha, fique tranquilo.</div>
+  
                 <div id="fala">
                   Ótima escolha, também gosto dessa parte!
                 </div>
               </div>
+              <div id="grafico_votacao">
+                <canvas id="grafico_voto_partes"></canvas>
+              </div>
+
+              <!-- <div id="grafico_votacao_testamentos">
+                <canvas id="votacao_testamento"></canvas>
+              </div> -->
+              
             </div>
 
 
@@ -125,6 +130,7 @@
 </html>
 
 <script>
+  window.onload = obterDadosGrafico(0)
   function selecao(){
     aviso.style.display = "block";
     triangulo.style.display = "block";
@@ -133,6 +139,7 @@
   }
 
   function escolher(){
+    location.reload()
     
     aviso.style.display = "none";
     triangulo.style.display = "none";
@@ -193,13 +200,15 @@
 }
 
 function plotarGrafico(resposta) {
-    console.log('resposta:', resposta)
+    console.log('resposta:', resposta[0].parte_favorita)
     // console.log(resposta)
     console.log('iniciando plotagem do gráfico...');
 
-    const ctx2 = document.getElementById('grafico_voto');
-    ctx2.style.backgroundColor = '#B2F7EF';
+    const ctx2 = document.getElementById('grafico_voto_partes');
+    ctx2.style.backgroundColor = '#ade8f4';
     ctx2.style.padding = '10px';
+    ctx2.style.borderBottomRightRadius = "8px";
+    ctx2.style.borderBottomLeftRadius = "8px";
     Chart.defaults.color = "black";
     Chart.defaults.borderColor = '#000';
     Chart.defaults.font.size = 18;
@@ -223,10 +232,10 @@ function plotarGrafico(resposta) {
     labels: labels,
     datasets: [{
       label: 'Número de pessoas que preferem essa parte',
-      backgroundColor: '#009ee2',
+      backgroundColor: '#03045e',
       borderColor: '#ffffff',
       data: [
-        1, 2, 3, 4, 4, 3, 2, 1,
+        resposta[8].parte_favorita, resposta[7].parte_favorita, resposta[6].parte_favorita, resposta[5].parte_favorita, resposta[4].parte_favorita, resposta[3].parte_favorita, resposta[2].parte_favorita, resposta[1].parte_favorita, resposta[0].parte_favorita
       ],
     }]
   };
@@ -240,35 +249,10 @@ function plotarGrafico(resposta) {
   };
 
   const myChart3 = new Chart(
-    document.getElementById('grafico_voto'),
+    document.getElementById('grafico_voto_partes'),
     config3
   );
-    /*atualiza o gráfico de 2 em e segundos*/
-    setTimeout(() => atualizarGrafico(), 2000);
   }
-
-  function atualizarGrafico() {
-  
-  fetch(`/medidas/tempo-real/`, { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
-          response.json().then(function (novoRegistro) {
-                // tirando e colocando valores no gráfico
-                dados.data.labels.push(novoRegistro[0]); // incluir um novo momentoapagar o primeiro de temperatura
-                dados.data.datasets[0].data.push(novoRegistro[0]);
-                dados.update();
-
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(), 2000);
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-            proximaAtualizacao = setTimeout(() => atualizarGrafico(), 2000);
-        }
-    })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
-
-}
 </script>
 
 <!---------------------------------------------------------ChartJs--------------------------------------------------------------------->
@@ -381,7 +365,7 @@ function plotarGrafico(resposta) {
 
 <script>
   const myChart3 = new Chart(
-    document.getElementById('grafico_voto'),
+    document.getElementById('grafico_voto_partes'),
     config3
   );
 </script> -->

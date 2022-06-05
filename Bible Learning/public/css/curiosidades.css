@@ -23,14 +23,15 @@ body {
     align-items: center;
 }
 
-#logo_site {
+/* #logo_site {
     width: 30%;
     height: 10vh;
-}
+} */
 
 #logo_bible_learning {
     height: 9vh;
     margin-left: 1%;
+    cursor: pointer;
 }
 
 
@@ -77,7 +78,7 @@ body {
 
 .banner {
     width: 100%;
-    height: 690vh;
+    height: 600vh;
     background-color: #f5ebe0;
     display: flex;
     justify-content: center;
@@ -86,7 +87,7 @@ body {
 .banner .container {    
     margin-left: 3%;
     width: 80%;
-    height: 690vh;
+    height: 600vh;
     display: flex;
     flex-direction: column;
 }
@@ -96,12 +97,15 @@ body {
     font-size: 60px;
 }
 
+#first_text {
+    padding-bottom: 2%;
+}
+
 .container p {
     font-family: 'Poppins', sans-serif;
     font-size: 35px;
     width: 70%;
     height: 6.5%;
-    padding-bottom: 5%;
     border-bottom: 2px solid black;
 }
 
@@ -125,26 +129,98 @@ body {
     margin-left: 5%;
 }
 
+.interacao_porc {
+    /* background-color: #023047; */
+    width: 64%;
+    height: 50vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.interacao_porc #titulo_porc {
+    font-size: 35px;
+    margin-top: 10%;
+}
+
+.interacao_porc #span_porc {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
 #titulo_grafico_partes {
     font-size: 40px;
     width: 50vw;
 }
 
-#grafico1 {
-    width: 33vw;
-    margin-left: 10%;
+.interacao_porc select {
+    height: 9%;
+    margin-bottom: 3%;
+}
+
+#btn_porc {
+    height: 9%;
+    width: 20%;
+}
+
+#resultado {
+    margin-left: 5%;
+    font-size: 20px;
+}
+
+#porcentagens {
+    width: 100%;
+    height: 7vh;
+    background-color: #a8dadc;
+    border-radius: 5px;
+}
+
+#barra {
+    height: 100%;
+    width: 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: .5s;
+}
+
+#erro {
+    position: absolute;
+    width: 14%;
+    height: 11%;
+    background-color: #ffbe0b;
+    margin-top: -10%;
+    margin-left: 11%;
+    display: flex;
+    align-items: center;
+    padding-left: 1%;
+    padding-top: .4%;
+    border-radius: 5px;
+    font-weight: bold;
+    display: none;
+}
+
+#triangulo_erro {
+    width: 0; 
+    height: 0; 
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent; 
+    border-right:15px solid #ffbe0b;
+    position: absolute;
+    margin-top: -7%;
+    margin-left: 10.2%;
+    display: none;
+}
+
+/* #grafico1 {
+    width: 50vw;
+    margin-left: 2%;
     display: flex;
     align-items: center;
     margin-top: 2%;
 }
 
-.titulo_grafico {
-    font-size: 50px;
-    margin-left: 5%;
-}
-
 #grafico2 {
-    width: 33vw;
+    width: 30vw;
     margin-left: 10%;
     display: flex;
     align-items: center;
@@ -153,14 +229,7 @@ body {
 
 #grafico_novo {
     margin-top: 10%;
-}
-
-.interacao {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
+} */
 
 #grafico_votacao {
     width: 80%;
@@ -234,15 +303,30 @@ button:hover {
     transition: .5s;
 }
 
+.parte_mais_votada {
+    width: 30%;
+    height: 100%;
+    margin-left: 3%;
+}
+
+.parte_mais_votada b {
+    font-size: 15px;
+}
+
+#parte_votada {
+    margin-left: 30%;
+    margin-bottom: 10%;
+}
+
 #triangulo {
     width: 0; 
     height: 0; 
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
-    border-left: 15px solid #adb5bd;
+    border-left: 15px solid #ffbe0b;
     position: absolute;
     margin-left: 19.5%;
-    margin-top: 262%;
+    margin-top: 219.5%;
     display: none;
 }
 
@@ -250,7 +334,7 @@ button:hover {
     font-size: 15px;
     width: 10%;
     text-align: center;
-    background-color: #adb5bd;
+    background-color: #ffbe0b;
     color: black;
     font-weight: 0;
     border-radius: 8px;
@@ -261,14 +345,52 @@ button:hover {
     margin-left: 9%;
 }
 
-#fala {
-    background-color: #fcbf49;
-    width: 88%;
-    margin-top: 10%;
-    border-radius: 8px;
-    padding: 10px;
-    display: none;
+.interacao {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    height: 150vh;
 }
+
+#h1_testamento {
+    width: 80%;
+}
+
+.interacao_testamento {
+    width: 80%;
+    height: 55vh;
+    background-color: #a8dadc;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+#grafico_votacao_testamentos {
+    width: 50%;
+}
+
+.select_testamento {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.select_testamento select {
+    width: 55%;
+    height: 10%;
+    margin-left: 25%;
+    margin-top: 15%;
+    background-color: #62b6cb;
+    border: 0;
+}
+
+.select_testamento button {
+    width: 45%;
+    height: 10%;
+    margin-left: 30%;
+    margin-top: 20%;
+}
+
 
 #pos_grafico {
     border-top: 2px solid black;
@@ -276,6 +398,7 @@ button:hover {
     align-items: center;
     height: 5%;
     padding-top: 5%;
+    margin-top: 7%;
 }
 
 #breve {

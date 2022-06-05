@@ -11,7 +11,11 @@ var database = require("../database/config")
 
 function trazer() {
     var instrucao = `
-    select count(fk_parte_favorita) as parte_favorita FROM usuario group by fk_parte_favorita;
+    select count(us.fk_parte_favorita) as parte_favorita, pb.parte as nome_livro
+    FROM usuario as us 
+    join partes_biblicas as pb
+    on us.fk_parte_favorita = pb.id
+    group by fk_parte_favorita;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

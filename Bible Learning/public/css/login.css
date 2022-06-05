@@ -186,7 +186,7 @@ body {
     width: 45px;
     display: none;
     position: fixed;
-    margin-top: 7.3%;
+    margin-top: 6.5%;
 }
 
 .loading-div img {
@@ -196,7 +196,7 @@ body {
 
 #eye {
     margin-left: 54%;
-    margin-top: -8%;
+    margin-top: -7.5%;
     position: relative;
     cursor: pointer;
 }

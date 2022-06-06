@@ -86,6 +86,7 @@ body {
 .banner .container {
     width: 80%;
     height: 550vh;
+    margin-left: 3%;
 }
 
 #first_title {
@@ -119,7 +120,7 @@ iframe {
 }
 
 .musicas {
-    width: 23%;
+    width: 25%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -146,7 +147,7 @@ audio::-webkit-media-controls-enclosure {
 .imgs img {
     width: 47%;
     margin-bottom: 18%;
-    margin-top: 20%;
+    margin-top: 15%;
 }
 
 .imgs {

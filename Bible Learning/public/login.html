@@ -26,6 +26,9 @@
     </div>
 
     <div class="banner">
+        <span id="span_falha_email"><img src="./imgs/falhou.png" class="falha"></span>
+        <span id="span_falha_senha"><img src="./imgs/falhou.png" class="falha"></span>
+
         <div class="card">
                 <h1>Login</h1>
                 <div class="linha"></div>
@@ -62,18 +65,26 @@
 
 <script>
     function entrar() {
-        aguardar();
-
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
 
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        if (emailVar == "") {
+            span_falha_email.style.display = "block"
+            input_email.style.border = "2px solid red"
+            input_senha.style.border = ""
+            span_falha_senha.style.display = "none"
+            
             finalizarAguardar();
             return false;
-        }
-        else {
+        } else if (senhaVar == ""){
+            span_falha_email.style.display = "none"
+            input_email.style.border = ""
+            span_falha_senha.style.display = "block"
+            input_senha.style.border = "2px solid red"
+
+            finalizarAguardar();
+            return false;
+        } else {
             setInterval(sumirMensagem, 5000)
         }
 
@@ -93,7 +104,13 @@
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
+                span_falha_email.style.display = "none"
+                input_email.style.border = ""
+                span_falha_senha.style.display = "none"
+                input_senha.style.border = ""
+
                 console.log(resposta);
+                aguardar();
 
                 resposta.json().then(json => {
                     console.log(json);
@@ -111,7 +128,6 @@
                 });
 
             } else {
-
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {

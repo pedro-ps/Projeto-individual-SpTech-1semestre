@@ -151,13 +151,13 @@ body {
 }
 
 .check {
-    height: 4vh;
+    height: 3vh;
 }
 
 #span_check_nome {
     position: fixed;
-    margin-left: -31.5%;
-    margin-top: .7%;
+    margin-left: -20%;
+    margin-top: -3.7%;
     font-size: 35px;
     color: #80b918;
     display: none;
@@ -165,8 +165,8 @@ body {
 
 #span_check_email {
     position: fixed;
-    margin-left: -31.5%;
-    margin-top: 13.7%;
+    margin-left: -20.4%;
+    margin-top: 8.5%;
     font-size: 35px;
     color: #80b918;
     display: none;
@@ -174,8 +174,8 @@ body {
 
 #span_check_senha {
     position: fixed;
-    margin-left: 31%;
-    margin-top: .5%;
+    margin-left: 10.4%;
+    margin-top: -3.7%;
     font-size: 35px;
     color: #80b918;
     display: none;
@@ -183,8 +183,8 @@ body {
 
 #span_check_repetir_senha {
     position: fixed;
-    margin-left: 31%;
-    margin-top: 13.5%;
+    margin-left: 19%;
+    margin-top: 8.6%;
     font-size: 35px;
     color: #80b918;
     display: none;
@@ -213,6 +213,18 @@ body {
     display: none;
 }
 
+#email_existente {
+    position: fixed;
+    font-family: 'montserrat', sans-serif;
+    font-size: 10px;
+    margin-top: 12.8%;
+    margin-left: .2%;
+    width: 14%;
+    font-weight: bold;
+    color: red;
+    display: none;
+}
+
 #span_erro_senha {
     position: fixed;
     font-family: 'montserrat', sans-serif;
@@ -227,7 +239,6 @@ body {
 
 #span_erro_repetir_senha {
     position: fixed;
-    position: fixed;
     font-family: 'montserrat', sans-serif;
     font-size: 10px;
     margin-top: 12.8%;
@@ -236,4 +247,50 @@ body {
     font-weight: bold;
     color: red;
     display: none;
+}
+
+.falha {
+    height: 3vh;
+}
+
+#span_falha_nome {
+    position: fixed;
+    margin-left: -19.8%;
+    margin-top: -3.4%;
+    display: none;
+}
+
+#span_falha_email {
+    position: fixed;
+    margin-left: -20.3%;
+    margin-top: 9%;
+    display: none;
+}
+
+#span_falha_senha {
+    position: fixed;
+    margin-left: 10.5%;
+    margin-top: -3.4%;
+    display: none;
+}
+
+#span_falha_repetir_senha{
+    position: fixed;
+    margin-left: 19%;
+    margin-top: 9.1%;
+    display: none;
+}
+
+#eye {
+    margin-left: 11.5%;
+    margin-top: 4.5%;
+    position: fixed;
+    cursor: pointer;
+}
+
+#eye2 {
+    margin-left: 11.5%;
+    margin-top: 10.7%;
+    position: fixed;
+    cursor: pointer;
 }

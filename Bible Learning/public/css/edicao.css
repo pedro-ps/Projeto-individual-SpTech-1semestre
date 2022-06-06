@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #98c1d9;
+}
+
+.header {
+    width: 100%;
+    height: 11vh;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+
+.header .container {
+    width: 80%;
+    height: 11vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+#logo_site {
+    width: 30%;
+    height: 10vh;
+}
+  
+  #logo_bible_learning {
+    height: 9vh;
+    margin-left: 1%;
+}
+  
+.navbar {
+    display: flex;
+    flex-direction: row;
+    width: 5%;
+    height: 13vh;
+    list-style: none;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+  
+.navbar li {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 13px;
+    border-radius: 5px;
+}
+  
+.navbar li:hover {
+    background-color: #ced4da;
+    
+}
+
+.banner {
+    width: 100%;
+    height: 80.7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cardEdicao {
+    width: 40%;
+    height: 70%;
+    background-color: #264653;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 50px;
+    align-self: center;
+    color: white;
+}
+
+label {
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    margin-left: 6.5%;
+    margin-bottom: 2%;
+}
+
+textarea {
+    width: 90%;
+    height: 40%;
+    align-self: center;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    resize: none;
+    padding: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    width: 15%;
+    height: 8%;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    margin-left: 20%;
+    margin-top: 2.5%;
+    transition: .3s;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #a8dadc;
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+    transition: .3s;
+}
+
+.footer {
+    width: 100%;
+    height: 8vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'montserrat', sans-serif;
+    font-size: 18px;
+}

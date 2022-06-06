@@ -25,10 +25,14 @@
     </div>
 
     <div class="banner">
-        <span id="span_check_nome"><img src="./imgs/verificado.png" class="check"></span>
-        <span id="span_check_email"><img src="./imgs/verificado.png" class="check"></span>
-        <span id="span_check_senha"><img src="./imgs/verificado.png" class="check"></span>
-        <span id="span_check_repetir_senha"><img src="./imgs/verificado.png" class="check"></span>
+        <span id="span_check_nome"><img src="./imgs/verificado-green.png" class="check"></span>
+        <span id="span_check_email"><img src="./imgs/verificado-green.png" class="check"></span>
+        <span id="span_check_senha"><img src="./imgs/verificado-green.png" class="check"></span>
+        <span id="span_check_repetir_senha"><img src="./imgs/verificado-green.png" class="check"></span>
+        <span id="span_falha_nome"><img src="./imgs/falhou.png" class="falha"></span>
+        <span id="span_falha_email"><img src="./imgs/falhou.png" class="falha"></span>
+        <span id="span_falha_senha"><img src="./imgs/falhou.png" class="falha"></span>
+        <span id="span_falha_repetir_senha"><img src="./imgs/falhou.png" class="falha"></span>
 
         <div class="card">
             <div class="container">
@@ -43,21 +47,24 @@
     
                         <label for="input_email" id="label_email">Email</label>
                         <input type="text" id="input_email" placeholder="exemplo@gmail.com" onkeyup="verificar_email()">
-                            <span id="span_erro_email"> Email inválido, certifique-se que seu email termina em @gmail.com, @outlook.com ou @hotmail.com</span>
+                        <span id="span_erro_email"> Email inválido, certifique-se que seu email termina em @gmail.com, @outlook.com ou @hotmail.com</span>
+                        <span id="email_existente">Este email já está cadastrado, tente cadastrar outro email.</span>
                     </div>
         
                     <div id="p2">
                         <label for="input_senha">Senha</label>
                         <input type="password" id="input_senha" placeholder="********" onkeyup="verificar_senha()">
                         <span id="span_erro_senha">A senha deve conter no mínimo 8 caracteres e um caracter especial</span>
+                        <img id="eye" onclick="senha_ver()" src="imgs/ver_senha.png" alt="" width="20px">
     
                         <label for="input_repetir_senha" id="label_repetir_senha">Repetir senha</label>
                         <input type="password" id="input_repetir_senha" placeholder="********" onkeyup="verificar_repetir_senha()">
                         <span id="span_erro_repetir_senha">As senhas não conferem</span>
+                        <img id="eye2" onclick="senha_ver2()" src="imgs/ver_senha.png" alt="" width="20px">
                     </div>
                 </div>
                 
-                <button onclick="enviar()">Enviar</button>
+                <button onclick="analisarEmail()">Enviar</button>
             </div>
         </div>
     </div>
@@ -69,6 +76,7 @@
         var emailVar = ""
         var senhaVar = ""
         var repetirSenhaVar= ""
+        var emailExiste = false
 
     function verificar_nome(){
         nomeVar = input_nome.value.trim()
@@ -77,6 +85,7 @@
             span_check_nome.style.display = "block"
             input_nome.style.border = ""
             span_erro_nome.style.display = "none"
+            span_falha_nome.style.display = "none"
         } else {
             span_check_nome.style.display = "none"
         }
@@ -89,6 +98,7 @@
             span_check_email.style.display = "block"
             span_erro_email.style.display = "none"
             input_email.style.border = ""
+            span_falha_email.style.display = "none"
         } else {
             span_check_email.style.display = "none"
         }
@@ -103,6 +113,7 @@
             span_check_senha.style.display = "block"
             span_erro_senha.style.display = "none"
             input_senha.style.border = ""
+            span_falha_senha.style.display = "none"
         } else {
             span_check_senha.style.display = "none"
         }
@@ -114,64 +125,160 @@
             span_check_repetir_senha.style.display = "block"
             span_erro_repetir_senha.style.display = "none"
             input_repetir_senha.style.border = ""
+            span_falha_repetir_senha.style.display = "none"
         } else {
             span_check_repetir_senha.style.display = "none"
         }
     }
 
-    function enviar(){
+    function analisarEmail(){
+        
+
+        fetch(`/usuarios/listar/`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                enviar(resposta)
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+    }
+
+    var emailExiste = false
+    
+    function enviar(resposta){
+        
+        console.log(resposta.length)
+        for(
+            let i = 0;
+            i < resposta.length;
+            i++
+        ) {
+            if (emailVar == resposta[i].email){
+                emailExiste = true
+            }
+        }
+
         var regex = /^(?=(?:.*?[A-Z]){0})(?=(?:.*?[0-9]){0})(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})(?!.*\s)[0-9a-zA-Z!@#$%;*(){}._+^&]*$/;
         repetirSenhaVar = input_repetir_senha.value.trim().toLowerCase();
         
         if(nomeVar == "" || nomeVar.length < 3){
             span_erro_nome.style.display = "block"
             input_nome.style.border = "2px solid red"
+            span_falha_nome.style.display = "block"
         } else if (emailVar == ""){
             span_erro_email.style.display = "block"
             input_email.style.border = "2px solid red"
+            span_falha_email.style.display = "block"
         } else if (!emailVar.endsWith("@gmail.com") && !emailVar.endsWith("@outlook.com") && !emailVar.endsWith("@hotmail.com") && !emailVar.endsWith("@sptech.school")){
             span_erro_email.style.display = "block"
             input_email.style.border = "2px solid red"
+            span_falha_email.style.display = "block"
         } else if (senhaVar == "" || senhaVar.length < 8 || !regex.exec(senhaVar)) {
             span_erro_senha.style.display = "block"
             input_senha.style.border = "2px solid red"
+            span_falha_senha.style.display = "block"
         } else if (repetirSenhaVar != senhaVar) {
             span_erro_repetir_senha.style.display = "block"
             input_repetir_senha.style.border = "2px solid red"
+            span_falha_repetir_senha.style.display = "block"
         } else {
-            fetch("/usuarios/cadastrar", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        // crie um atributo que recebe o valor recuperado aqui
-                        // Agora vá para o arquivo routes/usuario.js
-                        nomeServer: nomeVar,
-                        emailServer: emailVar,
-                        senhaServer: senhaVar,
-                    })
-                }).then(function (resposta) {
-        
-                    console.log("resposta: ", resposta);
-        
-                    if (resposta.ok) {
-                        window.location = "login.html";
-                        limparFormulario();
+            if (emailExiste){
+                email_existente.style.display = "block"
+                input_email.style.border = "2px solid red"
+                span_check_email.style.display = "none"
+                span_falha_email.style.display = "block"
+            } else {
+                fetch("/usuarios/cadastrar", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            // crie um atributo que recebe o valor recuperado aqui
+                            // Agora vá para o arquivo routes/usuario.js
+                            nomeServer: nomeVar,
+                            emailServer: emailVar,
+                            senhaServer: senhaVar,
+                        })
+                    }).then(function (resposta) {
+            
+                        console.log("resposta: ", resposta);
+            
+                        if (resposta.ok) {
+                            window.location = "login.html";
+                            limparFormulario();
+                            finalizarAguardar();
+                        } else {
+                            throw ("Houve um erro ao tentar realizar o cadastro!");
+                        }
+                    }).catch(function (resposta) {
+                        console.log(`#ERRO: ${resposta}`);
                         finalizarAguardar();
-                    } else {
-                        throw ("Houve um erro ao tentar realizar o cadastro!");
-                    }
-                }).catch(function (resposta) {
-                    console.log(`#ERRO: ${resposta}`);
-                    finalizarAguardar();
-                });
-        
-                return false;
+                    });
+            
+                    return false;
+                }
+            }
         }
 
     function sumirMensagem() {
         cardErro.style.display = "none"
     }
+    
+
+    const passwordinput = document.getElementById("input_senha");
+    const olho_aberto = document.getElementById("eye");
+
+    function senha_ver() {
+        let inputtype = passwordinput.type == "password";
+
+        if (inputtype) {
+            mostrar_senha();
+        } else {
+            esconder_senha();
+        }
+    }
+
+    function mostrar_senha() {
+        passwordinput.setAttribute("type", "text");
+        olho_aberto.setAttribute("src", "imgs/senha.png");
+    }
+
+    function esconder_senha() {
+        passwordinput.setAttribute("type", "password");
+        olho_aberto.setAttribute("src", "imgs/ver_senha.png");
+    }
+    
+
+
+    const passwordinput2 = document.getElementById("input_repetir_senha");
+    const olho_aberto2 = document.getElementById("eye2");
+
+    function senha_ver2() {
+        let inputtype2 = passwordinput2.type == "password";
+
+        if (inputtype2) {
+            mostrar_senha2();
+        } else {
+            esconder_senha2();
+        }
+    }
+
+    function mostrar_senha2() {
+        passwordinput2.setAttribute("type", "text");
+        olho_aberto2.setAttribute("src", "imgs/senha.png");
+    }
+
+    function esconder_senha2() {
+        passwordinput2.setAttribute("type", "password");
+        olho_aberto2.setAttribute("src", "imgs/ver_senha.png");
     }
 </script>

@@ -172,6 +172,9 @@
 
 <script>
   window.onload = obterDadosGrafico(0)
+  if (Chart.getChart("votacao_testamento")) {
+        Chart.getChart("votacao_testamento").destroy();
+  }
 
   function sumir_erro(){
       erro.style.display = "none"

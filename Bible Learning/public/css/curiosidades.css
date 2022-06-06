@@ -78,7 +78,7 @@ body {
 
 .banner {
     width: 100%;
-    height: 600vh;
+    height: 630vh;
     background-color: #f5ebe0;
     display: flex;
     justify-content: center;
@@ -87,7 +87,7 @@ body {
 .banner .container {    
     margin-left: 3%;
     width: 80%;
-    height: 600vh;
+    height: 630vh;
     display: flex;
     flex-direction: column;
 }
@@ -106,6 +106,7 @@ body {
     font-size: 35px;
     width: 70%;
     height: 6.5%;
+    padding-bottom: 5%;
     border-bottom: 2px solid black;
 }
 
@@ -326,7 +327,7 @@ button:hover {
     border-left: 15px solid #ffbe0b;
     position: absolute;
     margin-left: 19.5%;
-    margin-top: 219.5%;
+    margin-top: 209%;
     display: none;
 }
 
@@ -403,14 +404,15 @@ button:hover {
 
 #breve {
     height: 2%;
-    margin-top: 0;
+    margin-top: 5%;
     font-weight: bold;
     font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 2%;
+    padding-top: 5%;
     padding-bottom: 5%;
+    border-top: 2px solid black;
 }
 
 .footer {

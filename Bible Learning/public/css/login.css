@@ -186,7 +186,7 @@ body {
     width: 45px;
     display: none;
     position: fixed;
-    margin-top: 6.5%;
+    margin-top: 7.1%;
 }
 
 .loading-div img {
@@ -204,4 +204,22 @@ body {
 .banner #div_erros_login {
     margin-top: 15px;
     font-family: 'Exo 2', sans-serif;
-  }
+}
+
+.falha {
+    height: 3vh;
+}
+
+#span_falha_email {
+    position: fixed;
+    margin-left: -7.5%;
+    margin-top: -4%;
+    display: none;
+}
+
+#span_falha_senha {
+    position: fixed;
+    margin-left: -6.5%;
+    margin-top: 8.7%;
+    display: none;
+}

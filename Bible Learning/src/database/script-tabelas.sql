@@ -50,9 +50,6 @@ fk_usuario INT,
 FOREIGN KEY (fk_usuario) REFERENCES usuario (id)
 );
 
-
-
-
 /* para sql server - remoto - produção */
 
 CREATE TABLE usuario (

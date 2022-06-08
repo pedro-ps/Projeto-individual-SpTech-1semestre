@@ -177,10 +177,12 @@
             span_erro_email.style.display = "block"
             input_email.style.border = "2px solid red"
             span_falha_email.style.display = "block"
+            email_existente.style.display = "none"
         } else if (!emailVar.endsWith("@gmail.com") && !emailVar.endsWith("@outlook.com") && !emailVar.endsWith("@hotmail.com") && !emailVar.endsWith("@sptech.school")){
             span_erro_email.style.display = "block"
             input_email.style.border = "2px solid red"
             span_falha_email.style.display = "block"
+            email_existente.style.display = "none"
         } else if (senhaVar == "" || senhaVar.length < 8 || !regex.exec(senhaVar)) {
             span_erro_senha.style.display = "block"
             input_senha.style.border = "2px solid red"

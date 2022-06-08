@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="./css/dicas.css">
     <link rel="icon" href="./imgs/bible-book.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/funcoes.js"></script>
+    <script src="js/funcoes.js"></script>
     <title>Bible Learning | Dicas</title>
 </head>
-<body>
+<body onload="validarSessao()">
     <div class="header">
         <div class="container">
             <div class="logo">
@@ -94,33 +94,154 @@
             <h1 class="devocional">Dicas de músicas</h1>
             <div class="dicas_musicas">
                 <div class="musicas">
-                    <b id="first_music">1. Eis-Me Aqui - Esdras Gondim</b>
-                    <audio src="./sounds/eis-me aqui.mpeg" controls></audio>
-                    
-                    <b>2. Me Leva Pra Casa - Israel Subirá</b>
-                    <audio src="./sounds/me leva pra casa.mpeg" controls></audio>
-                    
-                    <b>3. Quem de nós - Vocal Livre</b>
-                    <audio src="./sounds/quem de nos.mpeg" controls></audio>
-                    
-                    <b>4. Oração - Discípulos</b>
-                    <audio src="./sounds/oracao.mpeg" controls></audio>
-                    
-                    <b>5. Only Jesus - Casting Crows</b>
-                    <audio src="./sounds/only Jesus.mpeg" controls></audio>
-                    
-                    <b>6. Água e pão - Discípulos</b>
-                    <audio src="./sounds/agua e pao.mpeg" controls></audio>
+                    <div class="fundo">
+                        <img src="./imgs/only-jesus.jpg" class="imgMusica">
+                        <div class="descricao">
+                            <h2>Only Jesus</h2>
+                            <i>Casting Crowns</i>
+                        </div>
+                        <div class="duracao">
+                            <div class="barra">
+                                <progress value="0" max="1" ></progress>
+                                <div class="ponto"></div>
+                            </div>
+                            <div class="tempo">
+                                <p id="inicio">0:00</p>
+                                <p class="fim">3:40</p>
+                            </div>
+                        </div>
+                        <div class="ajustar_player">
+                            <div class="player">
+                                <img src="./imgs/previus.png"  class="setas anterior">
+                                <img src="./imgs/play-button.png"  id="botao-play" onclick="tocarMusica()">
+                                <img src="./imgs/pause.png"  id="botao-pause" onclick="pausarMusica()">
+                                <img src="./imgs/next.png" class="setas proxima">
+                            </div>
+                        </div>
+                        <audio src="./sounds/only Jesus.mpeg"></audio>
+                    </div>
+                    <p class="indicacao">
+                        Para ouvir mais músicas apenas clique para avançar ou retroceder.
+                    </p>
                 </div>
+
                 
-                <div class="imgs">
-                    <img src="./imgs/musica.png" alt="">
-                    <img src="./imgs/dancando.png" alt="">
-                    <img src="./imgs/musica (1).png" alt="">
-                </div>
-        </div>
+                <!-- <div class="imgs">
+                    <img src="./imgs/musica.png" id="first_img">
+                    <img src="./imgs/dancando.png">
+                    <img src="./imgs/musica (1).png">
+                </div> -->
+            </div>
+            
+            <!-- <h1>Dicas de livros</h1>
+
+            <div class="livros">
+                <b>1. Cristianismo puro e simples</b>
+            </div> -->
 
         </div>
     </div>
+
+    <div class="footer">
+        <p>
+            Bible Learning &copy 2022
+        </p>
+    </div>
 </body>
 </html>
+
+<script>
+    var musicas = [
+        {titulo: 'Rumo ao lar', artista: 'Coral Jovem UNASP-EC', src: './sounds/rumo ao lar.mp4', img: './imgs/rumo-ao-lar.jfif'},
+        /* {titulo: 'Me leva pra casa', artiste: 'Israel Subirá', src:'./sounds/me leva pra casa.mpeg', 
+        img:'./imgs/capa-isra.webp'},  */
+        {titulo: 'No mais fundo mar', artista: 'Coral Jovem UNASP-EC', src: './sounds/no mais fundo mar.mpeg',
+        img:'./imgs/coral-jovem.webp'},
+        {titulo: 'Nova Chance', artista: 'Bairro Novo', src: './sounds/nova chance.mpeg', img: './imgs/nova-chance.webp'},
+        {titulo: 'Água e Pão', artista: 'Discípulos', src: './sounds/agua e pao.mpeg', img: './imgs/agua-e-pao.webp'},
+        {titulo: 'Festejar', artista: 'Jeferson Pillar', src: './sounds/festejar.mpeg', img: './imgs/jeferson-pillar.jpg'},
+        {titulo: 'Estou em paz', artista: 'Novo tom', src: './sounds/estou em paz.mpeg', img: './imgs/novo-tom.jpg'},
+        {titulo: 'Quem de nós', artista: 'Vocal Livre', src: './sounds/quem de nos.mpeg', img: './imgs/vocal-livre.jpg'},
+        {titulo: 'Eis-me aqui', artista: 'Esdras Gondim', src: './sounds/eis-me aqui.mpeg', img: './imgs/esdras-gondim.jfif'},
+        {titulo: 'Obrigado', artista: 'Fernando Iglesias', src: './sounds/obrigado.mpeg', img: './imgs/obrigado.jfif'}
+    ]
+    // Eventos
+    var indexMusica = 0
+
+    var musica = document.querySelector('audio');
+    
+    var duracaoMusica = document.querySelector('.fim');
+    var imagemMusica = document.querySelector('.imgMusica');
+    var nomeMusica = document.querySelector('.descricao h2');
+    var nomeArtista = document.querySelector('.descricao i');
+    
+    renderizarMusica(indexMusica)
+
+    musica.addEventListener('timeupdate', atualizarBarra)
+    
+    document.querySelector('.anterior').addEventListener('click', () => {
+        indexMusica--;
+        if(indexMusica < 0){
+            indexMusica = 9
+        }
+        renderizarMusica(indexMusica);
+        tocarMusica();
+        progress.style.width = "0%" 
+    });
+    
+    document.querySelector('.proxima').addEventListener('click', () => {
+        indexMusica++;
+        if(indexMusica > 9){
+            indexMusica = 0
+        }
+        renderizarMusica(indexMusica);
+        tocarMusica();
+        progress.style.width = "0%"
+    });
+
+    segundoParaMinutos()
+
+    duracaoMusica.textContent = segundoParaMinutos(Math.floor(musica.duration));
+    
+    //Funções
+    function renderizarMusica(index){
+        musica.setAttribute('src', musicas[index].src)
+        musica.addEventListener('loadeddata', () => {
+            nomeMusica.textContent = musicas[index].titulo;
+            nomeArtista.textContent = musicas[index].artista;
+            imagemMusica.src = musicas[index].img;
+            duracaoMusica.textContent = segundoParaMinutos(Math.floor(musica.duration));
+        });
+    }
+
+    function tocarMusica(){
+        musica.play();
+
+        document.querySelector('#botao-pause').style.display = "block"
+        document.querySelector('#botao-play').style.display = "none"
+    }
+
+    function pausarMusica(){
+        musica.pause();
+
+        document.querySelector('#botao-pause').style.display = "none"
+        document.querySelector('#botao-play').style.display = "block"
+    }
+
+    function atualizarBarra(){
+        var barra = document.querySelector('progress')
+        barra.style.width = ((musica.currentTime / musica.duration) * 100).toFixed(2) + "%"
+
+        inicio.innerHTML = segundoParaMinutos(Math.floor(musica.currentTime))
+    }
+
+    function segundoParaMinutos(segundos){
+        var campoMinutos = Math.floor(segundos / 60);
+        var campoSegundos = segundos % 60;
+        if(campoSegundos < 10){
+            campoSegundos = "0" + campoSegundos;
+        }
+
+        return campoMinutos + ":" + campoSegundos;
+    }
+</script>

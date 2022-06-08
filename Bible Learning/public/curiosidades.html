@@ -1,101 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Nunito&family=Permanent+Marker&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/curiosidades.css">
-    <link rel="icon" href="./imgs/bible-book.png">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/funcoes.js"></script>
-    <title>Bible Learning | Curiosidades</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Nunito&family=Permanent+Marker&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/curiosidades.css">
+  <link rel="icon" href="./imgs/bible-book.png">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/funcoes.js"></script>
+  <title>Bible Learning | Curiosidades</title>
 </head>
+
 <body onload="validarSessao(), atualizarFeed()">
-    <div class="header">
-        <div class="container">
-            <div class="logo">
-                <!-- <a href="inicio.html" id="logo_site"> -->
-                  <img src="./imgs/logo_bible_learning.png" alt="logo bible learning" id="logo_bible_learning" onclick="window.location='inicio.html'">
-                <!-- </a> -->
-            </div>
-        
-                <ul class="navbar">
-                    <li onclick="window.location='inicio.html'">Home</li>
-                    <li onclick="window.location='contatos.html'">Contatos</li>
-                    <li onclick="limparSessao()">Sair</li>
-                    
-                </ul>
-        </div>
+  <div class="header">
+    <div class="container">
+      <div class="logo">
+        <!-- <a href="inicio.html" id="logo_site"> -->
+        <img src="./imgs/logo_bible_learning.png" alt="logo bible learning" id="logo_bible_learning"
+          onclick="window.location='inicio.html'">
+        <!-- </a> -->
+      </div>
+
+      <ul class="navbar">
+        <li onclick="window.location='inicio.html'">Home</li>
+        <li onclick="window.location='contatos.html'">Contatos</li>
+        <li onclick="limparSessao()">Sair</li>
+
+      </ul>
     </div>
+  </div>
 
-    <div class="banner">
-        <div class="container">
-          <h1 id="first_title">Curiosidades sobre a bíblia</h1>
-            <p id="first_text">
-                A Bíblia Sagrada foi escrita há mais de 4 mil anos atrás!
-                O mais impressionante, é que seus escritos, fazem muito sentido para os dias atuais. 
-                E com isso vem convertendo e mudando a vida de milhares de pessoas!
-            </p>
+  <div class="banner">
+    <div class="container">
+      <h1 id="first_title">Curiosidades sobre a bíblia</h1>
+      <p id="first_text">
+        A Bíblia Sagrada foi escrita há mais de 4 mil anos atrás!
+        O mais impressionante, é que seus escritos, fazem muito sentido para os dias atuais.
+        E com isso vem convertendo e mudando a vida de milhares de pessoas!
+      </p>
 
-            <p>
-              A  bíblia é um livro que foi escrito por vários autores diferentes, num período de quase 1.600 anos.
-              Ainda assim, a bíblia se completa em várias questões, seguindo uma linha do tempo quase perfeita!
-            </p>
-            
-            <p>
-              A bíblia foi escrita por 40 pessoas e é traduzida em mais de 1.500 línguas.
-              Além contar com cerca de 1.189 capítulos, 31.102 versículos, 773.693 palavras e 3.566.480 letras.
-            </p>
+      <p>
+        A bíblia é um livro que foi escrito por vários autores diferentes, num período de quase 1.600 anos.
+        Ainda assim, a bíblia se completa em várias questões, seguindo uma linha do tempo quase perfeita!
+      </p>
 
-            <p id="divisao_livros">
-                O Antigo Testamento é composto por 39 livros. Já o Novo Testamento é composto por 27 livros,
-                Totalizando 66 livros. Estes 66 livros estão separados em:
-                <div id="listas">
-                    <h1>Antigo Testamento</h1>
-                    <li>Pentateuco (Gêneses, Êxodo, Levítico, Números, Deuteronômio);</li>
-                    <li>Livros históricos (Josué, Juízes, Rute, 1 e 2 Samuel, 1 e 2 Reis, 1 e 2 Crônicas, Esdras, Neemias, Ester);</li>
-                    <li>Livros poéticos (Jó, Salmo, Provérbios, Eclesiastes, Cantares);</li>
-                    <li>Profetas Maiores (Isaias, Jeremias, Lamentações, Ezequiel, Daniel);</li>
-                    <li>Profetas menores (Oséias, Joel, Amós, Obadias, Jonas, Miquéias, Naum, Habacuque, Sofonias, Ageu, Zacarias, Malaquias).</li>
-                    <h1>Novo Testamento</h1>
-                    <li>Evangelhos (Mateus, Marcos, Lucas, João);</li>
-                    <li>Histórico (Atos dos apóstolos)</li>
-                    <li>Epístolas ou cartas (Romanos, I e II Coríntios, Gálatas, Efésios, Felipenses, Colossenses, I e II Tessanolossenses, 1 e 2 Timóteo, Tito, Filemon, Hebreus, Tiago, 1 e 2 Pedro, 1, 2 e 3 João, Judas);</li>
-                    <li>Revelações (Apocalipse).</li>
-                  </div>
-                </p>
-                <div class="interacao_porc">
-                  <h1 id="titulo_grafico_partes">Quanto cada parte ocupa na bíblia (em porcentagem)</h1>
-                  <span id="titulo_porc">Qual parte você quer ver?</span>
-                  <br>
-                  <select id="ver_partes" onclick="sumir_erro()">
-                    <option selected disabled>Escolher parte</option>
-                    <option value="pentateuco">Pentateuco</option>
-                    <option value="livros_historicos">Livros históricos</option>
-                    <option value="livros_poeticos">Livros poéticos</option>
-                    <option value="profetas_maiores">Profetas Maiores</option>
-                    <option value="profetas_menores">Profetas menores</option>
-                    <option value="evangelhos">Evangelhos</option>
-                    <option value="historico">Histórico</option>
-                    <option value="epistolas">Epístolas ou cartas</option>
-                    <option value="revelacoes">Revelações</option>
-                  </select>
-                  <button onclick="ver_porcentagem()" id="btn_porc">Ver porcentagem</button>
-                  <b id="resultado"></b>
-                  <div id="porcentagens">
-                    <div id="barra">
-                      <span id="span_porc"></span>
-                    </div>
-                  </div>
-                  <div id="erro">
-                    Para ver a porcentagem é necessário selecionar alguma parte.
-                  </div>
-                  <div id="triangulo_erro"></div>
-                </div>
-            <!-- <div id="grafico1">
+      <p>
+        A bíblia foi escrita por 40 pessoas e é traduzida em mais de 1.500 línguas.
+        Além contar com cerca de 1.189 capítulos, 31.102 versículos, 773.693 palavras e 3.566.480 letras.
+      </p>
+
+      <p id="divisao_livros">
+        O Antigo Testamento é composto por 39 livros. Já o Novo Testamento é composto por 27 livros,
+        Totalizando 66 livros. Estes 66 livros estão separados em:
+      <div id="listas">
+        <h1>Antigo Testamento</h1>
+        <li>Pentateuco (Gêneses, Êxodo, Levítico, Números, Deuteronômio);</li>
+        <li>Livros históricos (Josué, Juízes, Rute, 1 e 2 Samuel, 1 e 2 Reis, 1 e 2 Crônicas, Esdras, Neemias, Ester);
+        </li>
+        <li>Livros poéticos (Jó, Salmo, Provérbios, Eclesiastes, Cantares);</li>
+        <li>Profetas Maiores (Isaias, Jeremias, Lamentações, Ezequiel, Daniel);</li>
+        <li>Profetas menores (Oséias, Joel, Amós, Obadias, Jonas, Miquéias, Naum, Habacuque, Sofonias, Ageu, Zacarias,
+          Malaquias).</li>
+        <h1>Novo Testamento</h1>
+        <li>Evangelhos (Mateus, Marcos, Lucas, João);</li>
+        <li>Histórico (Atos dos apóstolos)</li>
+        <li>Epístolas ou cartas (Romanos, I e II Coríntios, Gálatas, Efésios, Felipenses, Colossenses, I e II
+          Tessanolossenses, 1 e 2 Timóteo, Tito, Filemon, Hebreus, Tiago, 1 e 2 Pedro, 1, 2 e 3 João, Judas);</li>
+        <li>Revelações (Apocalipse).</li>
+      </div>
+      </p>
+      <div class="interacao_porc">
+        <h1 id="titulo_grafico_partes">Quanto cada parte ocupa na bíblia (em porcentagem)</h1>
+        <span id="titulo_porc">Qual parte você quer ver?</span>
+        <br>
+        <select id="ver_partes" onclick="sumir_erro()">
+          <option selected disabled>Escolher parte</option>
+          <option value="pentateuco">Pentateuco</option>
+          <option value="livros_historicos">Livros históricos</option>
+          <option value="livros_poeticos">Livros poéticos</option>
+          <option value="profetas_maiores">Profetas Maiores</option>
+          <option value="profetas_menores">Profetas menores</option>
+          <option value="evangelhos">Evangelhos</option>
+          <option value="historico">Histórico</option>
+          <option value="epistolas">Epístolas ou cartas</option>
+          <option value="revelacoes">Revelações</option>
+        </select>
+        <button onclick="ver_porcentagem()" id="btn_porc">Ver porcentagem</button>
+        <b id="resultado"></b>
+        <div id="porcentagens">
+          <div id="barra">
+            <span id="span_porc"></span>
+          </div>
+        </div>
+        <div id="erro">
+          Para ver a porcentagem é necessário selecionar alguma parte.
+        </div>
+        <div id="triangulo_erro"></div>
+      </div>
+      <!-- <div id="grafico1">
               <canvas id="antigo_testamento"></canvas>
             </div>
             
@@ -103,123 +111,124 @@
             <div id="grafico2">
               <canvas id="novo_testamento"></canvas>
             </div> -->
-            
-            <div id="triangulo"></div>
-            <h1 id="votacao">Veja qual parte o pessoal acha mais legal:</h1>
-            <div class="interacao">
-              <div class="selects">
-                <h4>Qual a sua parte favorita?</h4>
-                <select name="select votacao" id="partes_biblia" onclick="selecao()">
-                  <option selected disabled>Escolha sua parte</option>
-                  <option value="1">Pentateuco</option>
-                  <option value="2">Livros históricos</option>
-                  <option value="3">Livros poéticos</option>
-                  <option value="4">Profetas maiores</option>
-                  <option value="5">Profetas menores</option>
-                  <option value="6">Evangelhos</option>
-                  <option value="7">Histórico</option>
-                  <option value="8">Epístolas ou cartas</option>
-                  <option value="9">Revelações</option>
-                </select>
-  
-                <button onclick="escolher()" id="btn_escolha" disabled>Escolher</button>
 
-                <!-- <div class="parte_mais_votada">
+      <div id="triangulo"></div>
+      <h1 id="votacao">Veja qual parte o pessoal acha mais legal:</h1>
+      <div class="interacao">
+        <div class="selects">
+          <h4>Qual a sua parte favorita?</h4>
+          <select name="select votacao" id="partes_biblia" onclick="selecao()">
+            <option selected disabled>Escolha sua parte</option>
+            <option value="1">Pentateuco</option>
+            <option value="2">Livros históricos</option>
+            <option value="3">Livros poéticos</option>
+            <option value="4">Profetas maiores</option>
+            <option value="5">Profetas menores</option>
+            <option value="6">Evangelhos</option>
+            <option value="7">Histórico</option>
+            <option value="8">Epístolas ou cartas</option>
+            <option value="9">Revelações</option>
+          </select>
+
+          <button onclick="escolher()" id="btn_escolha" disabled>Escolher</button>
+
+          <!-- <div class="parte_mais_votada">
                   <b>A parte mais votada foi:</b>
                   <span id="parte_votada">parte</span>
                 </div> -->
 
-                <div id="aviso">Você pode mudar sua escolha, fique tranquilo.</div>
+          <div id="aviso">Você pode mudar sua escolha, fique tranquilo.</div>
 
-              </div>
-              <div id="grafico_votacao">
-                <canvas id="grafico_voto_partes"></canvas>
-              </div>
-
-              <h1 id="h1_testamento">Veja se o pessoal prefere o antigo ou o novo testamento:</h1>
-              <div class="interacao_testamento">
-                <div id="grafico_votacao_testamentos">
-                  <canvas id="votacao_testamento"></canvas>
-                </div>
-                <div class="select_testamento">
-                  <select id="testamentos">
-                    <option selected disabled>Escolha qual você mais gosta</option>
-                    <option value="1">Antigo Testamento</option>
-                    <option value="2">Novo Testamento</option>
-                  </select>
-
-                  <button onclick="escolher_testamento()">Escolher</button>
-                </div>
-              </div>
-              
-            </div>
-
-
-
-            <p id="breve">
-              Em breve postaremos mais curiosidades, fique de olho!
-            </p>
         </div>
-    </div>
+        <div id="grafico_votacao">
+          <canvas id="grafico_voto_partes"></canvas>
+        </div>
 
-    <div class="footer">
-      <p>
-          Bible Learning &copy 2022
+        <h1 id="h1_testamento">Veja se o pessoal prefere o antigo ou o novo testamento:</h1>
+        <div class="interacao_testamento">
+          <div id="grafico_votacao_testamentos">
+            <canvas id="votacao_testamento"></canvas>
+          </div>
+          <div class="select_testamento">
+            <select id="testamentos">
+              <option selected disabled>Escolha qual você mais gosta</option>
+              <option value="1">Antigo Testamento</option>
+              <option value="2">Novo Testamento</option>
+            </select>
+
+            <button onclick="escolher_testamento()">Escolher</button>
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <p id="breve">
+        Em breve postaremos mais curiosidades, fique de olho!
       </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>
+      Bible Learning &copy 2022
+    </p>
   </div>
 </body>
+
 </html>
 
 <script>
   window.onload = obterDadosGrafico(0)
   if (Chart.getChart("votacao_testamento")) {
-        Chart.getChart("votacao_testamento").destroy();
+    Chart.getChart("votacao_testamento").destroy();
   }
 
-  function sumir_erro(){
-      erro.style.display = "none"
-      triangulo_erro.style.display = "none"
+  function sumir_erro() {
+    erro.style.display = "none"
+    triangulo_erro.style.display = "none"
   }
 
-  function ver_porcentagem(){
+  function ver_porcentagem() {
     var parteEscolhida = ver_partes.value
 
-    if (parteEscolhida == "pentateuco" || parteEscolhida == "livros_poeticos" || parteEscolhida == "profetas_maiores"){
+    if (parteEscolhida == "pentateuco" || parteEscolhida == "livros_poeticos" || parteEscolhida == "profetas_maiores") {
       var porc = (5 * 100) / 66
 
       span_porc.innerHTML = `${porc.toFixed(2)}%`
       barra.style.backgroundColor = "#62b6cb"
       barra.style.width = `${porc}%`
       resultado.innerHTML = `Esta parte representa <u>${porc.toFixed(2)}%</u> da bíblia`
-    } else if (parteEscolhida == "livros_historicos"){
+    } else if (parteEscolhida == "livros_historicos") {
       var porc = (11 * 100) / 66
 
       span_porc.innerHTML = `${porc.toFixed(2)}%`
       barra.style.backgroundColor = "#62b6cb"
       barra.style.width = `${porc}%`
       resultado.innerHTML = `Esta parte representa <u>${porc.toFixed(2)}%</u> da bíblia`
-    } else if (parteEscolhida == "profetas_menores"){
+    } else if (parteEscolhida == "profetas_menores") {
       var porc = (12 * 100) / 66
 
       span_porc.innerHTML = `${porc.toFixed(2)}%`
       barra.style.backgroundColor = "#62b6cb"
       barra.style.width = `${porc}%`
       resultado.innerHTML = `Esta parte representa <u>${porc.toFixed(2)}%</u> da bíblia`
-    } else if (parteEscolhida == "evangelhos"){
+    } else if (parteEscolhida == "evangelhos") {
       var porc = (4 * 100) / 66
 
       span_porc.innerHTML = `${porc.toFixed(2)}%`
       barra.style.backgroundColor = "#62b6cb"
       barra.style.width = `${porc}%`
       resultado.innerHTML = `Esta parte representa <u>${porc.toFixed(2)}%</u> da bíblia`
-    } else if (parteEscolhida == "historico" || parteEscolhida == "revelacoes"){
+    } else if (parteEscolhida == "historico" || parteEscolhida == "revelacoes") {
       var porc = (1 * 100) / 66
 
       span_porc.innerHTML = `${porc.toFixed(2)}%`
       barra.style.backgroundColor = "#62b6cb"
       barra.style.width = `${porc}%`
       resultado.innerHTML = `Esta parte representa <u>${porc.toFixed(2)}%</u> da bíblia`
-    } else if (parteEscolhida == "epistolas"){
+    } else if (parteEscolhida == "epistolas") {
       var porc = (21 * 100) / 66
 
       span_porc.innerHTML = `${porc.toFixed(2)}%`
@@ -231,17 +240,17 @@
       triangulo_erro.style.display = "block"
     }
   }
-  
+
   /* verificar_mais_votado() */
-  function selecao(){
+  function selecao() {
     aviso.style.display = "block";
     triangulo.style.display = "block";
     btn_escolha.disabled = false;
   }
 
-  function escolher(){
+  function escolher() {
     location.reload()
-    
+
     aviso.style.display = "none";
     triangulo.style.display = "none";
 
@@ -249,60 +258,60 @@
     var parteVar = Number(partes_biblia.value)
 
     fetch(`/voto/votar/${idUsuario}`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        // crie um atributo que recebe o valor recuperado aqui
-                        // Agora vá para o arquivo routes/usuario.js
-                        parteServer: parteVar,
-                    })
-                }).then(function (resposta) {
-        
-                    console.log("resposta: ", resposta);
-        
-                    if (resposta.ok) {
-                      obterDadosGrafico();
-                        /* limparFormulario(); */
-                        /* finalizarAguardar(); */
-                    } else {
-                        throw ("Houve um erro ao tentar realizar o voto!");
-                    }
-                }).catch(function (resposta) {
-                    console.log(`#ERRO: ${resposta}`);
-                    /* finalizarAguardar(); */
-                });
-        
-                return false;
-        }
-        
-       /*---------------------------------Trazendo dados do banco para o gráfico de parte favorita----------------------------------*/
-       function obterDadosGrafico(fk_parte_favorita) {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        parteServer: parteVar,
+      })
+    }).then(function (resposta) {
 
-        fetch(`/voto/trazer/`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
+      console.log("resposta: ", resposta);
 
-                plotarGrafico(resposta);
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-        }
-    })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      if (resposta.ok) {
+        obterDadosGrafico();
+        /* limparFormulario(); */
+        /* finalizarAguardar(); */
+      } else {
+        throw ("Houve um erro ao tentar realizar o voto!");
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      /* finalizarAguardar(); */
+    });
+
+    return false;
+  }
+
+  /*---------------------------------Trazendo dados do banco para o gráfico de parte favorita----------------------------------*/
+  function obterDadosGrafico(fk_parte_favorita) {
+
+    fetch(`/voto/trazer/`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          resposta.reverse();
+
+          plotarGrafico(resposta);
         });
-}
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
 
-function plotarGrafico(resposta) {
+  function plotarGrafico(resposta) {
     console.log('resposta:', resposta[0].parte_favorita, resposta[0].nome_livro)
     // console.log(resposta)
     console.log('iniciando plotagem do gráfico...');
     if (Chart.getChart("grafico_voto_partes")) {
-        Chart.getChart("grafico_voto_partes").destroy();
+      Chart.getChart("grafico_voto_partes").destroy();
     }
 
     const ctx2 = document.getElementById('grafico_voto_partes');
@@ -318,108 +327,115 @@ function plotarGrafico(resposta) {
     console.log('nomeMaquina', qntd_pessoas) */
 
     const labels = [
-  'Pentateuco',
-  'Livros históricos',
-  'Livros poéticos',
-  'Profetas maiores',
-  'Profetas menores',
-  'Evangelhos',
-  'Histórico',
-  'Epístolas',
-  'Revelações',   
-  ];
+      'Pentateuco',
+      'Livros históricos',
+      'Livros poéticos',
+      'Profetas maiores',
+      'Profetas menores',
+      'Evangelhos',
+      'Histórico',
+      'Epístolas',
+      'Revelações',
+    ];
 
-  const data3 = {
-    labels: labels,
-    datasets: [{
-      label: 'Número de pessoas que preferem essa parte',
-      backgroundColor: '#03045e',
-      borderColor: '#ffffff',
-      data: [
-        resposta[8].parte_favorita, resposta[7].parte_favorita, resposta[6].parte_favorita, resposta[5].parte_favorita, resposta[4].parte_favorita, resposta[3].parte_favorita, resposta[2].parte_favorita, resposta[1].parte_favorita, resposta[0].parte_favorita
-      ],
-    }]
-  };
+    const data3 = {
+      labels: labels,
+      datasets: [{
+        label: 'Número de pessoas que preferem essa parte',
+        backgroundColor: '#03045e',
+        borderColor: '#ffffff',
+        data: [
+          resposta[8].parte_favorita, resposta[7].parte_favorita, resposta[6].parte_favorita, resposta[5].parte_favorita, resposta[4].parte_favorita, resposta[3].parte_favorita, resposta[2].parte_favorita, resposta[1].parte_favorita, resposta[0].parte_favorita
+        ],
+      }]
+    };
 
-  const config3 = {
-    type: 'bar',
-    data: data3,
-    options: {
-/*       indexAxis: 'y', */
-    }
-  };
+    const config3 = {
+      type: 'bar',
+      data: data3,
+      options: {
+        /*       indexAxis: 'y', */
+        scales: {
+          y: {
+            ticks: {
+              precision: 0,
+            }
+          }
+        }
+      }
+    };
 
-  const myChart3 = new Chart(
-    document.getElementById('grafico_voto_partes'),
-    config3
-  );
+    const myChart3 = new Chart(
+      document.getElementById('grafico_voto_partes'),
+      config3
+    );
   }
 </script>
 <!----------------------------------------Enviando dados para a tabela de novo e velho testamento-------------------------------------->
 <script>
-  function escolher_testamento(){
+  function escolher_testamento() {
     /* location.reload() */
 
     var idUsuario = sessionStorage.ID_USUARIO;
     var votoVar = Number(testamentos.value);
 
     fetch(`/testamento/votar/${idUsuario}`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        // crie um atributo que recebe o valor recuperado aqui
-                        votoServer: votoVar,
-                        // Agora vá para o arquivo routes/usuario.js
-                      })
-                    }).then(function (resposta) {
-                      console.log(votoVar)
-        
-                    console.log("resposta: ", resposta);
-        
-                    if (resposta.ok) {
-                      obterDadosGrafico2();
-                        /* limparFormulario(); */
-                        /* finalizarAguardar(); */
-                    } else {
-                        throw ("Houve um erro ao tentar realizar o voto!");
-                    }
-                }).catch(function (resposta) {
-                    console.log(`#ERRO: ${resposta}`);
-                    /* finalizarAguardar(); */
-                });
-        
-                return false;
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        votoServer: votoVar,
+        // Agora vá para o arquivo routes/usuario.js
+      })
+    }).then(function (resposta) {
+      console.log(votoVar)
+
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        obterDadosGrafico2();
+        /* limparFormulario(); */
+        /* finalizarAguardar(); */
+      } else {
+        throw ("Houve um erro ao tentar realizar o voto!");
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      /* finalizarAguardar(); */
+    });
+
+    return false;
   }
 
   function obterDadosGrafico2(fk_parte_favorita) {
 
-            fetch(`/testamento/trazer/`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
+    fetch(`/testamento/trazer/`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          resposta.reverse();
 
-                    plotarGrafico2(resposta);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-            })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-}
+          plotarGrafico2(resposta);
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
 
-window.onload = obterDadosGrafico2(0)
+  window.onload = obterDadosGrafico2(0)
 
-function plotarGrafico2(resposta) {
+  function plotarGrafico2(resposta) {
     console.log('resposta:', resposta[0].parte_favorita)
     // console.log(resposta)
     console.log('iniciando plotagem do gráfico...');
     if (Chart.getChart("votacao_testamento")) {
-        Chart.getChart("votacao_testamento").destroy();
+      Chart.getChart("votacao_testamento").destroy();
     }
 
     /* const ctx2 = document.getElementById('grafico_voto_partes');
@@ -434,31 +450,31 @@ function plotarGrafico2(resposta) {
     /* const qntd_pessoas = resposta.map(listaPessoas => listaPessoas.qntd_pessoas)
     console.log('nomeMaquina', qntd_pessoas) */
 
-  const data3 = {
-  labels: [
-    'Antigo Testamento',
-    'Novo Testamento'
-  ],
-  datasets: [{
-    label: 'Número de pessoas que votaram',
-    data: [
-    resposta[1].parte_favorita, resposta[0].parte_favorita
-    ],
-    backgroundColor: [
-      '#003049',
-      '#83c5be',
-    ],
-    color: 'white',
-    hoverOffset: 4
-  }]
-};
+    const data3 = {
+      labels: [
+        'Antigo Testamento',
+        'Novo Testamento'
+      ],
+      datasets: [{
+        label: 'Número de pessoas que votaram',
+        data: [
+          resposta[1].parte_favorita, resposta[0].parte_favorita
+        ],
+        backgroundColor: [
+          '#003049',
+          '#83c5be',
+        ],
+        color: 'white',
+        hoverOffset: 4
+      }]
+    };
     const config3 = {
-  type: 'pie',
-  data: data3,
-  ticks: {
-    color: 'black'
-  }
-};
+      type: 'pie',
+      data: data3,
+      ticks: {
+        color: 'black'
+      }
+    };
     const myChart3 = new Chart(
       document.getElementById('votacao_testamento'),
       config3
